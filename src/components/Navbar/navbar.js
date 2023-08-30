@@ -8,14 +8,14 @@ const Navbar = () => {
 
   return (
     <div className={styles.nav}>
-      {/* <input type="checkbox" id="nav-check" /> */}
+      <input type="checkbox" id={styles.navCheck} />
       <div className={styles.navHeader}>
         <div className={styles.navTitle}>
           <Image src="/logo.png" alt="" width={80} height={40} />
         </div>
       </div>
       <div className={styles.navBtn}>
-        <label htmlFor="nav-check">
+        <label htmlFor={styles.navCheck}>
           <span></span>
           <span></span>
           <span></span>
