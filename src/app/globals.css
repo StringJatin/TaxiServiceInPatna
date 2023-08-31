@@ -1,8 +1,10 @@
 * {
   box-sizing: border-box;
+  /* background-color:  #E5EDF1; */
+}
+.midSection{
   background-color:  #E5EDF1;
 }
-
 body {
   margin: 0px;
   font-family: 'segoe ui';
