@@ -281,7 +281,6 @@ margin: auto;
     align-items: center;
   }
   .formGroup{
-    width: 100%;
     display: flex;
     flex-direction: column;
     margin: 1rem 0rem;
@@ -323,8 +322,11 @@ margin: auto;
   }
   .phoneMain{
     display: flex;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
     
+  }
+  .phoneMain input{
+    width: 80%;
   }
   #phoneCode{
     margin-top: 0;
@@ -345,6 +347,10 @@ margin: auto;
     margin-top: 10rem;
   }
 @media (max-width: 900px) {
+  .phoneMain {
+    width: 60%;
+    object-position: right;
+  }
   .contentContainer{
 flex-direction: column;
     width: 100%;

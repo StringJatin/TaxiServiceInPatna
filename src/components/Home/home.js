@@ -8,7 +8,7 @@ import 'react-phone-number-input/style.css'
 // import PhoneMap from "./PhoneMap";
 // import ChooseCategory from "../ChooseCategory/";
 import Modal from "../Modal/Modal";
-// import TripSummary from "./TripSummary";
+import TripSummary from "../TripSummary/TripSummary";
 // import SuccessBooking from "./SuccessBooking";
 
 
@@ -366,11 +366,11 @@ const HeroHome = ({ message, setMessage }) => {
                         </div>
                     </div>
                     <div className={styles.formGroup}>
-                        <label htmlFor="package">Package <div className={styles.helpTrip}>
+                        <label htmlFor={styles.package}>Package <div className={styles.helpTrip}>
                             <p>{inputDescriptions.tourpackage}</p>
                         </div></label>
                         <select
-                            id="package"
+                            id={styles.package}
                             name="tourpackage"
                             value={tourPackage}
                             onChange={handleInputChange}

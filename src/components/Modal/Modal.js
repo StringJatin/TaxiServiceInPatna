@@ -28,7 +28,7 @@ const Modal = ({ setShowModal, setCarType, showSummary, setShowSummary }) => {
                 <span className={styles.hiddenText}>4 seater, 4 bags, AC</span>
               </p>
               <div className={styles.para}>
-                <Image src="/car1.png" width={200} height={300} alt="" />
+                <Image src="/car1.png" width={250} height={300} alt="" />
               </div>
               <button
                 className={styles.bookNowBtn}
@@ -44,12 +44,12 @@ const Modal = ({ setShowModal, setCarType, showSummary, setShowSummary }) => {
           </div>
           <div className={styles.categoryCard}>
             <div className={styles.content}>
-              <p className={styles.heading}>Badi Sawari (Sedan Car)</p>
+              <p className={styles.heading}>Badi Sawari  (Sedan Car)</p>
               <p className={styles.facilities}>
                 <span className={styles.hiddenText}>4 seater, 4 bags, AC</span>
               </p>
               <div className={styles.para}>
-              <Image src="/car2.png"  width={200} height={300} alt="" />
+              <Image src="/car2.png"  width={250} height={300} alt="" />
               </div>
               <button
                 className={styles.bookNowBtn}
@@ -70,7 +70,7 @@ const Modal = ({ setShowModal, setCarType, showSummary, setShowSummary }) => {
                 <span className={styles.hiddenText}>4 seater, 4 bags, AC</span>
               </p>
               <div className={styles.para}>
-              <Image src="/car3.png" width={200} height={300} alt="" />
+              <Image src="/car3.png" width={250} height={300} alt="" />
               </div>
               <button
                 className={styles.bookNowBtn}
