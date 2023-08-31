@@ -9,7 +9,7 @@ import 'react-phone-number-input/style.css'
 // import ChooseCategory from "../ChooseCategory/";
 import Modal from "../Modal/Modal";
 import TripSummary from "../TripSummary/TripSummary";
-// import SuccessBooking from "./SuccessBooking";
+import SuccessBooking from "../SuccessBooking/SuccessBooking";
 
 
 import Typed from 'typed.js'; // Make sure to install the 'typed.js' library using npm or yarn

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react'; // You can import other necessary hooks here
 import styles from './TripSummary.module.css'; // Adjust the path based on your project structure
-// import SuccessBooking from './SuccessBooking';
+import SuccessBooking from '../SuccessBooking/SuccessBooking';
 import Axios from 'axios';
 
 const TripSummary = ({
@@ -25,8 +25,9 @@ const TripSummary = ({
     setShowSummary(false);
   };
 
-  const handleSubmitSummary = async () => {
+  const handleSubmitSummary = async (e) => {
     try {
+        e.preventDefault();
       const currentDate = new Date().toLocaleDateString(); // Format: "28/7/2023"
       const formattedCurrentDate = formatDate(currentDate);
       // Send POST request to backend API
