@@ -1,0 +1,87 @@
+/* Styles for the parent container of the banners */
+.container{
+    width: 85%;
+    align-items: center;
+    margin: auto;
+}
+.bannerMain {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  .headingbanner{
+    text-align: center;
+    font-size:2rem;
+    font-weight: 600;
+    padding: 1rem;
+    text-transform: uppercase;
+   color: #24344d ;
+}
+.servicepara{
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    padding-bottom: 1.5rem;
+    
+}
+  /* Styles for each banner item */
+  
+  .banner {
+    position: relative; /* Add position relative for hover effect */
+    flex-basis: calc(25% - 1rem);
+    margin-bottom: 1rem;
+    overflow: hidden; /* Hide overflow for image transition */
+    cursor: pointer; /* Add cursor pointer for hover effect */
+    
+    /* Add transition for smooth animation */
+    transition: transform 0.3s ease-in-out;
+  }
+  .banner:hover {
+    transform: scale(1.05); /* Scale up the card on hover */
+  }
+  /* Styles for the shopping image container */
+  .shoppingImage {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%; /* Maintain aspect ratio */
+    overflow: hidden;
+    background-color:#ffffff;
+  }
+  .shoppingImage img{
+    mix-blend-mode: multiply;
+  filter: contrast(1);
+  }
+  
+  /* Styles for the text */
+  .text {
+    padding: 0.1rem;
+    background-color: #f1de2d;
+    text-align: center;
+    
+  }
+  .text h4{
+    background-color:#f1de2d ;
+    color: #24344d;
+    text-transform: uppercase;
+    
+  }
+  /* Responsive layout adjustments */
+  @media (max-width: 768px) {
+    .banner {
+      flex-basis: calc(50% - 1rem); /* Adjust the width for smaller screens */
+      padding: 7px;
+      margin-bottom: 0rem;
+    }
+    .text{
+      height: 75px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .banner {
+      flex-basis: 50%; /* Full width for smallest screens */
+
+    }
+  }
+  

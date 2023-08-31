@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  background-color:  #E5EDF1;
 }
 
 body {
@@ -7,3 +8,7 @@ body {
   font-family: 'segoe ui';
 }
 
+:root {
+  --primary-color: #FFD43A;
+  --secondary-color: #24344d;
+}
