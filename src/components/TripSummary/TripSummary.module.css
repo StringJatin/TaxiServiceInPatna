@@ -1,0 +1,89 @@
+.modalSummary{
+    position: relative;
+}
+
+.modalSummaryContent{
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  width: 30%;
+  text-align: left;
+}
+.modalSummaryHeading{
+    text-align: center;
+  
+    top: 3%;
+    left: 23%;
+}
+.buttonCloseSummary{
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+}
+.buttonSubmitSummary{
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 31%;
+}
+
+.buttonCloseSummary:hover{
+    background-color: #0056b3;
+}
+.modalOverlaySummary{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+@media (max-width: 900px){
+   .modalSummaryContent{
+   
+    width: 75%;
+    /* height: 500px; */
+    
+   } 
+   .buttonCloseSummary:first-child{
+    margin-left: auto;
+   }
+   .modalSummaryHeading{
+    margin-top: 1%;
+    padding-top: 0;
+    text-transform: uppercase;
+   
+
+   }
+   .buttonCloseSummary{
+    margin-top: 0px;
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    align-content: center;
+    width: 2rem;
+}
+.buttonSubmitSummary{
+    margin-left: 24%;
+}
+}
