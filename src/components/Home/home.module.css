@@ -1,0 +1,493 @@
+/* *{
+  font-family:'Poppins', sans-serif;
+} */
+/* .description-field{
+  display: none;
+}
+.question:hover .description-field{
+ display: block;
+ font-size: 8px;
+ display: inline;
+position: absolute;
+
+
+ padding: 5px;
+} */
+
+.helpTrip{
+  position: absolute;
+  /* top: 18px;
+  right: 18px; */
+  text-align: center;
+  background-color: #BCDBEA;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  font-size: 14px;
+  line-height: 15px;
+  cursor: default;
+  display: inline;
+  margin-left: 5px;
+  margin-top: 1px;
+}
+
+.helpTrip:before{
+  
+  content:'?';
+  font-weight: bold;
+  color:#fff;
+}
+
+.helpTrip:hover p{
+  display:block;
+  transform-origin: 100% 0%;
+
+  -webkit-animation: fadeIn 0.3s ease-in-out;
+  animation: fadeIn 0.3s ease-in-out;
+
+}
+
+.helpTrip p{    /* The tooltip */
+  display: none;
+  text-align: left;
+  background-color: #1E2021;
+  padding: 10px;
+  width: 180px;
+  position: absolute;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  /* right: -4px; */
+  color: #FFF;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.helpTrip p:before{ /* The pointer of the tooltip */
+  position: absolute;
+  content: '';
+  width:0;
+  height: 0;
+  border:6px solid transparent;
+  border-bottom-color:#1E2021;
+  
+  top:-12px;
+}
+
+.helpTrip p:after{ /* Prevents the tooltip from being hidden */
+  width:100%;
+  height:40px;
+  content:'';
+  position: absolute;
+  top:-40px;
+  left:0;
+}
+
+/* CSS animation */
+
+@-webkit-keyframes fadeIn {
+  0% { 
+      opacity:0; 
+      transform: scale(0.6);
+  }
+
+  100% {
+      opacity:100%;
+      transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity:0; }
+  100% { opacity:100%; }
+}
+.hero img{
+    background-size: cover;
+    max-width: 100%;
+    /* margin-top: -22%; */
+    filter: blur(2px);
+    max-height: 20vh;
+    z-index: 1;
+}
+.hero{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    
+}
+.heroTitle{
+    position: absolute;
+   z-index: 1;
+   font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #ffec1b;
+    display: flex;
+    width: 100%;
+
+}
+.heroTitle p{
+   width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.2rem;
+}
+.menuTrip {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+
+  .menuContentsTrip{
+    margin-top: 1rem;
+    width: 100%;
+    color: #000000;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+  .menuTrip{
+    width: 100%;
+    /* margin-bottom: -0.6rem; */
+  }
+
+  .menuItemTrip.active {
+    background-color:#474fa0;
+    color: rgb(255, 255, 255);
+    border: 1px solid #393737;
+    font-weight: 700;
+  }
+  .menuItem1.active {
+    background-color:#20A8D9;
+    color: black;
+    border: 1px solid #888383;
+  }/* ... Your existing CSS code ... */
+
+  .formContainer {
+    /* width: 80%; */
+    /* height: 260px;   */
+    max-width: 500px;
+/* Add margin from top and bottom */
+margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 120px;
+    box-shadow:   1px 4px 41px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the form horizontally */
+    /* position: absolute; */
+    z-index: 100;
+    /* left: 10rem;
+    top: 10rem; */
+
+  }
+  .homeContainer{
+    width: 100%;
+  
+  }
+  .contentContainer{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+  
+  .tripOptions {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    /* display: flex; */
+    justify-content: center; /* Center the menu items */
+    box-sizing: border-box;
+    overflow: auto;
+  }
+  
+  .menuTrip {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    /* display: flex; */
+    
+  }
+  .menuItemTrip {
+    cursor: pointer;
+    padding: 10px;
+    /* background-color: var(--main-color); */
+    height: 30px;
+    text-transform: uppercase;
+    /* border-radius: 12px; */
+    font-size: 12px;
+    text-align: center;
+    font-weight: 600;
+    color: rgb(171, 166, 166);
+    width: 100%;
+    border-right: 1px solid black;
+    /* margin-right: 1rem; */
+    /* border: 1px solid var(--second-color); */
+    display: flex;
+    justify-content: center; /* Center the text horizontally */
+    align-items: center; /* Center the text vertically */
+  }
+ .menuItemTrip:last-of-type {
+   border-right: none;
+}
+
+  
+  /* ... Your existing CSS code ... */
+  
+  .menuTripOut {
+    
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    margin-bottom: 1rem;
+    /* justify-content: center;  */
+    margin-top: 0.5rem; /* Add some margin between the main menu and additional options */
+  }
+  
+  .menuTripOut li {
+  
+    cursor: pointer;
+    /* padding: 10px; */
+    /* background-color: var(--main-color); */
+    height: 30px;
+   
+    font-size: 12px;
+    text-align: center;
+    font-weight: 600;
+    color: rgb(171, 166, 166);
+    width: 150px;
+    /* margin-right: 1rem; */
+    border-right: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-decoration: none; */
+  }
+  .bookingForm{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    
+    justify-content:space-around;
+    align-items: center;
+  }
+  .formGroup{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0rem;
+  }
+  .formGroup #days{
+    border-left: none ;
+    border-right: none ;
+    border-top: none ;
+  }
+  .formGroup label{
+    margin-bottom: 1rem;
+  }
+
+  .formButton{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .formButton label{
+    font-weight: 600;
+  
+  }
+  .formButton button{
+    margin-top: 0.5rem;
+    padding: 10px;
+    width: 150px;
+    background: #474fa0;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 750;
+    transition: all 0.3s ease;
+  }
+  .formButton button:hover{
+    background: var(--second-color);
+    transform: scale(1.1);
+    
+  }
+  .phoneMain{
+    display: flex;
+    margin-bottom: 1rem;
+    
+  }
+  #phoneCode{
+    margin-top: 0;
+    margin-right: 5px;
+    background-color: #F6F6F6;
+    padding: 6px;
+    border-radius: 6px;
+    font-weight: 100;
+  }
+  #customTime,
+  #package{
+    /* width: 110px; */
+    border-left: none;
+    border-top: none;
+    border-right: none;
+  }
+  .map{
+    margin-top: 10rem;
+  }
+@media (max-width: 900px) {
+  .contentContainer{
+flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+  }
+  .formButton{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .formButton div{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+    .hero img {
+    display: none;
+     
+    }
+   
+  .map{
+    margin-top: 0rem;
+  }
+  .heroTitle p{
+    font-size: 2rem;
+    margin: 0.8rem;
+    
+  }
+  .heroTitle{
+   background-image: url(/phone-bg.webp);
+    border-radius: 0 0 15% 15%;
+    background-position: center;
+    color: #ffffff;
+   
+  }
+  .bookingForm{
+    flex-direction: column;
+    width: 100%;
+  }
+  .formGroup{
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    /* font-size: 1rem; */
+    margin-bottom: 1.3rem;
+  }
+  .formContainer {
+    width: 93%;
+    margin-top: 7rem;
+    z-index: 100;
+    position: unset;
+    border-radius: 12px;
+  }
+  .menuTrip {
+    width: 100%;
+  }
+  .tripOptions{
+    width: 100%;
+  }
+ 
+  .formGroup label{
+    margin-top: 0.5rem;
+  }
+  .formButton button{
+    font-size: 1rem;
+  }
+  #customTime{
+  width: 200px;
+}
+#package{
+  width: 200px;
+}
+#phoneCode{
+  margin-right: 0px;
+  background: none;
+  padding-top: 12px;
+  border-bottom: 1px solid black;
+  border-radius: 0px;
+  font-weight: 100;
+  margin-bottom: 0px;
+}
+#phone{
+  width: 160px;
+}
+ #days{
+  width: 200px;
+}
+  }
+  @media (min-width: 901px) {
+    .map{
+      width: 800px;
+      margin: 2rem auto;
+      box-shadow:   1px 4px 41px rgba(0,0,0,1);
+    }
+    .formContainer{
+      width: 600px;
+      border-radius: 20px;
+      margin-top: 2rem;
+  
+        /* width: 80%; */
+        /* height: 260px;   */
+        max-width: 500px;
+    /* Add margin from top and bottom */
+    margin: auto;
+        padding: 20px;
+        background-color: #ffffff;
+   
+        box-shadow:   1px 4px 41px rgba(0,0,0,0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center the form horizontally */
+        /* position: absolute; */
+        z-index: 100;
+        /* left: 10rem;
+        top: 10rem; */
+    
+    }
+    .homeContainer{
+      width: 100%;
+      background-image: url(/hero.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* background-position: center; */
+    }
+    .contentContainer{
+      margin-top: 6rem;
+    }
+    .formGroup{
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      margin: 1rem;
+    }
+    .formGroup label{
+      margin-bottom: 1rem;
+    }
+    .typed{
+      color: #EBE5CD !important;
+    }
+  }
+  /* Add your existing CSS styles here */
+
+/* Animation styles */
+.typed{
+  color: yellow;
+}
