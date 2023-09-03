@@ -23,9 +23,9 @@ const Navbar = () => {
 
       <div className={styles.navLinks}>
         <Link href="/">Home</Link>
-        <Link href="/AboutUsPage">About Us</Link>
-        <Link href="/ContactUs">Contact Us</Link>
-        <Link href="/OurServicesPage">Our Services</Link>
+        <Link href="/aboutUs">About Us</Link>
+        <Link href="/contactUs">Contact Us</Link>
+        <Link href="/ourServices">Our Services</Link>
         <Link href="/AllBlogs">Blogs</Link>
         {/* {loginStatus && <Link href="/AdminDashboard">Dashboard</Link>} */}
       </div>

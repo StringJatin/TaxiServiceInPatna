@@ -32,3 +32,7 @@ input{
     width: 200px;
   }
 }
+footer{
+  background: rgb(34, 32, 32);
+  list-style-type: none;
+}

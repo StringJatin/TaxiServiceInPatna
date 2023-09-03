@@ -1,0 +1,213 @@
+/* styles/Footer.module.css */
+
+.containerFooter {
+    max-width: 1170px;
+    margin: auto;
+    text-decoration: none;
+     
+  }
+  
+  .rowFooter {
+    display: flex;
+    flex-direction: row !important;
+  }
+  
+  .footer {
+    background-color: #24262b;
+    padding: 70px 0;
+  }
+  
+  .footerCol {
+    width: 100%;
+    padding: 0 15px;
+  }
+  
+  .footerCol h4 {
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    position: relative;
+  }
+  
+  .footerCol h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+  }
+  
+  .footerCol ul li:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  
+  .footerCol ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+  }
+  
+  .footerCol ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
+  }
+  
+  .footerCol .socialLinks a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+  }
+  
+  .footerCol .socialLinks a:hover {
+    color: #24262b;
+  }
+  
+  .whatsappFloat img {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    z-index: 100;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .copyright {
+    color: #fff;
+    margin: 10px 0;
+  }
+  
+  .whatsappFloat img:hover {
+    transform: scale(1.1);
+  }
+  
+  .menuFoot {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+  }
+  
+  .footerColFoot {
+    width: 100%;
+  }
+  
+  .menuContents {
+    color: #888383;
+  }
+  
+  .menuFoot {
+    width: 100%;
+    margin-bottom: -0.6rem;
+  }
+  
+  .menuItem {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #FFD43A;
+    height: 35px;
+    border-radius: 12px;
+    font-size: 12px;
+    text-align: center;
+    font-weight: 600;
+    color: black;
+    min-width: 150px;
+    margin-right: 1rem;
+    border: 1px solid #FFD43A;
+    text-transform: capitalize;
+  }
+  
+  .menuItem1 {
+    cursor: pointer;
+    padding: 10px;
+    background-color: var(--main-color);
+    height: 35px;
+    border-radius: 12px;
+    font-size: 12px;
+    text-align: center;
+    font-weight: 600;
+    color: black;
+    width: 150px;
+    border: 1px solid var(--main-color);
+    margin-right: 1rem;
+  }
+  
+  .menuItem.active {
+    background-color: #888383;
+    color: black;
+    border: 1px solid #888383;
+  }
+  
+  .menuItem1.active {
+    background-color: #888383;
+    color: black;
+    border: 1px solid #888383;
+  }
+  
+  @media (max-width: 568px) {
+    .whatsappFloat img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .menuFoot {
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .menuItem {
+      width: 30%;
+    }
+  
+    .menuItem1 {
+      width: 30%;
+      margin-bottom: 0.5rem;
+    }
+  
+    .footerColFoot {
+      width: 100%;
+    }
+  
+    .footerCol {
+      width: 100%;
+    }
+  
+    .rowFooter {
+      width: 100%;
+      margin-bottom: 30px;
+      flex-direction: column !important;
+    }
+  
+    .whatsappFloat img {
+      right: 20px;
+      bottom: 25px;
+    }
+  }
+  

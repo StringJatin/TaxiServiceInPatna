@@ -7,6 +7,7 @@ import CarOptions from '@/components/CarOptions/CarOptions'
 import AboutUsBanner from '@/components/AboutUsBanner/AboutUsBanner'
 import Majorcity from '@/components/MajorCity/MajorCity'
 import Partner from '@/components/PartnerPage/PartnerPage'
+import Footer from '@/components/Footer/Footer'
 const Home = () => {
   return (
     <div>
