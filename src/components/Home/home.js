@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react"
 import Autocomplete from 'react-google-autocomplete';
 import 'react-phone-number-input/style.css'
 // import PhoneMap from "./PhoneMap";
-// import ChooseCategory from "../ChooseCategory/";
+import ChooseCategory from "../ChooseCategory/ChooseCategory";
 import Modal from "../Modal/Modal";
 import TripSummary from "../TripSummary/TripSummary";
 import SuccessBooking from "../SuccessBooking/SuccessBooking";
