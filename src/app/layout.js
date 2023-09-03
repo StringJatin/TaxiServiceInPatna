@@ -17,8 +17,10 @@ export default function RootLayout({ children }) {
       <ScreenProvider>
       <body className={inter.className}>
         <Navbar />
-        {children}</body>
-        <Footer/>
+        {children}
+        {/* <Footer/> */}
+        </body>
+        
         </ScreenProvider>
     </html>
   )
