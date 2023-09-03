@@ -80,4 +80,7 @@
       .content{
         font-size: 1 rem;
       }
+      .container{
+        margin-bottom: 12px;
+      }
 }

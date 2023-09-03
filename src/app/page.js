@@ -12,7 +12,6 @@ const Home = () => {
   return (
     <div>
       <HeroHome />
-      <div className="midSection">
       <Banner/>
       <Ourservices/>
       <Cta/>
@@ -20,7 +19,7 @@ const Home = () => {
       <AboutUsBanner/>
       <Majorcity/>
       <Partner/>
-      </div>
+      <Footer/>
     </div>
   )
 }

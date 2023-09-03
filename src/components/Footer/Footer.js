@@ -2,7 +2,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { instagram, facebookcircle, linkedin, whatsapp } from 'boxicons';
+import {FaWhatsapp, FaLinkedin, FaInstagram , FaFacebook  } from 'react-icons/fa'
+import {AiFillHeart} from 'react-icons/ai'
 import wicon from "../../../public/whatsapp-icon.png";
 import styles from "./footer.module.css"; // Make sure to adjust the path
 
@@ -113,14 +114,14 @@ const Footer = () => {
             <div className={styles.footerCol}>
               <h4>follow us</h4>
               <div className={styles.socialLinks}>
-                <a href="#"><box-icon name='whatsapp' type='logo' color='#ffffff' ></box-icon></a>
-                <a href="#"><box-icon type='logo' name='linkedin' color='#ffffff'></box-icon></a>
-                <a href="#"><box-icon name='instagram' type='logo' color='#ffffff' ></box-icon></a>
-                <a href="#"><box-icon name='facebook-circle' type='logo' color='#ffffff'></box-icon></a>
-              </div>
+          <a href="#"><FaWhatsapp color="#ffffff" size={24} /></a> {/* Use the React Icon component */}
+          <a href="#"><FaLinkedin color="#ffffff" size={24} /></a> {/* Use the React Icon component */}
+          <a href="#"><FaInstagram color="#ffffff" size={24} /></a> {/* Use the React Icon component */}
+          <a href="#"><FaFacebook color="#ffffff" size={24} /></a> {/* Use the React Icon component */}
+        </div>
               {/* Footer navtabs */}
               <p className={styles.copyright}>&copy; Copyrights. All rights reserved.</p>
-              <p className={styles.copyright}>Made with <i className="bx bxs-heart"> By Webzyro Tech</i></p>
+              <p className={styles.copyright}>Made with <AiFillHeart/> By Webzyro Tech</p>
             </div>
           </div>
           <div className={styles.footerCol}>
