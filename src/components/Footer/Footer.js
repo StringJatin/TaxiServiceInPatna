@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { instagram, facebookcircle, linkedin, whatsapp } from 'boxicons';
 import wicon from "../../../public/whatsapp-icon.png";
 import styles from "./footer.module.css"; // Make sure to adjust the path
 
