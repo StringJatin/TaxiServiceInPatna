@@ -53,3 +53,5 @@ const citySchema = new mongoose.Schema({
     }
   });
   const CityData = mongoose.model('CityData', citySchema);
+
+  export default  CityData;
