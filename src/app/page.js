@@ -20,6 +20,7 @@ const Home = () => {
       <AboutUsBanner/>
       <Majorcity/>
       <Partner/>
+      <Footer />
       </div>
     </div>
   )
