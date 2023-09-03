@@ -1,0 +1,169 @@
+.catheading{
+    text-transform: uppercase;
+    color: #3c486b;
+    text-align: center;
+    
+ /* padding-top: 3rem; */
+}
+.caropion-main{
+  margin-top: -2rem;
+}
+.catpara{
+    text-align: center;
+}
+
+.categoryCard {
+    /* background-color: #ebb074; */
+/* background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%); */
+
+    margin-bottom: 2rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    /* padding: 32px; */
+    overflow: hidden;
+    border-radius: 10px;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+
+  .categoryCardContainer{
+
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    /* padding: 20px; */
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* gap: 20px; */
+    color: rgba(54, 53, 53, 0.925);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    margin: 0%;
+    padding: 0%;
+    padding-top: 0.5rem;
+    background-color: #3c486b;
+    /* background-color: #123c69; */
+
+  } 
+ 
+  .content p{
+    margin: 0%;
+    padding: 0%;
+  }
+  .content .heading {
+    font-weight: 700;
+    font-size: 32px;
+    color: #f0f0f0;
+    text-align: center;
+  }
+  
+ 
+  
+  /* .content .btn {
+    color: #e8e8e8;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(-45deg, #ECDE3C 0%, #201D0D 100% );
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  } */
+  
+  .categoryCard::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0px;
+    /* background: linear-gradient(-45deg, #ECDE3C 0%, #201D0D 100% ); */
+    z-index: -1;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .categoryCard:hover::before {
+    height: 100%;
+  }
+  
+  .categoryCard:hover {
+    box-shadow: none;
+  }
+  
+  .categoryCard:hover .btn {
+    color: #212121;
+    background: #e8e8e8;
+  }
+  
+  .content .btn:hover {
+    outline: 2px solid #e8e8e8;
+    background: transparent;
+    color: #e8e8e8;
+  }
+  .content{
+    color: #f0f0f0;
+    text-align: center;
+  }
+  .content .btn:active {
+    box-shadow: none;
+  }
+  .img{
+    max-width: 70%;
+    height: 250px;
+  }
+  
+
+ 
+
+.categoryCardContainer {
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+}
+
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  margin: 1rem;
+}
+
+
+
+
+/* Center the image horizontally and vertically */
+.img {
+  display: block;
+  margin: 0 auto;
+}
+
+  @media(max-width: 768px){
+.categoryCardContainer{
+    flex-direction: column;
+    align-items: center;
+ 
+}
+.categoryCard{
+    width: 85%;
+    height: 65%;
+    
+}
+.catheading{
+    padding-top: 3rem;
+    margin: auto;
+    width: 85%;
+}
+.catpara{
+  width: 80%;
+  margin: auto;
+  padding-bottom: 2rem;
+}
+
+  }

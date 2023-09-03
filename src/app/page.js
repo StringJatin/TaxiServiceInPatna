@@ -3,6 +3,10 @@ import Cta from '@/components/CTA/CTA'
 import Ourservices from '@/components/OurServices/OurServices'
 import React from 'react'
 import HeroHome from '@/components/Home/home'
+import CarOptions from '@/components/CarOptions/CarOptions'
+import AboutUsBanner from '@/components/AboutUsBanner/AboutUsBanner'
+import Majorcity from '@/components/MajorCity/MajorCity'
+import Partner from '@/components/PartnerPage/PartnerPage'
 const Home = () => {
   return (
     <div>
@@ -11,6 +15,10 @@ const Home = () => {
       <Banner/>
       <Ourservices/>
       <Cta/>
+      <CarOptions/>
+      <AboutUsBanner/>
+      <Majorcity/>
+      <Partner/>
       </div>
     </div>
   )

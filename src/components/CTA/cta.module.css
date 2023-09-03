@@ -1,12 +1,13 @@
-/* Cta.css */
+/* Cta.module.css */
 
 /* Background image and overlay styles */
+
 .bgimghero {
-    background: linear-gradient(to right, #8e44ad, #3498db); /* Purple gradient */
+    background: linear-gradient(to right, #8e44ad, #3498db);
     background-size: cover;
     background-position: center;
     position: relative;
-    padding: 50px 0; /* Adjust padding to your liking */
+    padding: 50px 0;
   }
   
   .bgimghero::before {
@@ -16,7 +17,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-    /* background-color: rgba(0, 0, 0, 0.6); Add an overlay for better text readability */
   }
   
   /* Text styles */
@@ -29,8 +29,6 @@
     font-size: 36px;
     font-weight: 700;
     margin-bottom: 20px;
-   
-    
   }
   
   .lead {
@@ -48,11 +46,14 @@
     text-transform: uppercase;
     border-radius: 5px;
     margin: 1rem;
-    position: relative; /* Set the position to enable z-index */
-
+    position: relative;
   }
-  .textlgright{
+  
+  .textlgright {
     margin-left: 1rem;
+  }
+  .textlgright a{
+    text-decoration: none;
   }
   .btnpurple {
     background-color: #6c2a88;
@@ -63,9 +64,11 @@
     background-color: #ffffff;
     color: #333333;
   }
+  
   .btnlearnmore:hover {
-    background-color: #000000; /* Change to black on hover */
+    background-color: #000000;
   }
+  
   @keyframes glowing {
     0% {
       background-color: #000000;
@@ -85,5 +88,19 @@
   
   /* Apply the glowing animation to the Learn More button */
   .btnlight.btnglowing {
-    animation: glowing 1s ease-in-out infinite; /* Adjust the duration and animation timing as desired */
+    animation: glowing 1s ease-in-out infinite;
   }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .collg7 h2 {
+      font-size: 24px;
+    }
+    .ctamain{
+        margin-top: 1rem;
+    }
+    .lead {
+      font-size: 18px;
+    }
+  }
+  

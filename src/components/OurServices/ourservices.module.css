@@ -41,7 +41,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
- 
   padding: 0px 15px;
 }
 
@@ -51,6 +50,9 @@
 }
 .button{
   margin-bottom: 1rem;
+}
+.desc{
+  line-height: 1.6;
 }
 .content,
 .title,

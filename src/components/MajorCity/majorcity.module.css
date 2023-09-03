@@ -1,0 +1,65 @@
+.majorCityMain{
+    display: flex;
+    width: 85%;
+    margin: auto;
+    /* flex-wrap: wrap; */
+}
+.headingService{
+    width: 85%;
+    margin: auto;
+    text-align: center;
+    color: #2e54a7;
+}
+.majorCityCard {
+   
+   margin: 1rem;
+   margin-bottom: 3rem;
+    min-height: 370px;
+    border-radius: 20px;
+    background: #e8e8e8;
+    box-shadow: 5px 5px 6px #dadada,
+                 -5px -5px 6px #f6f6f6;
+    transition: 0.4s;
+    /* max-width: 20%; */
+    max-width: 25%;
+
+  }
+  
+  .majorCityCard:hover {
+    translate: 0 -10px;
+  }
+  
+  .majorCityCardTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2e54a7;
+    margin: 15px 0 0 10px;
+  }
+  
+  .majorCityCardImage .img{
+    /* min-height: 170px; */
+    max-width: 100%;
+    background-color: #c9c9c9;
+    border-radius: 15px;
+    box-shadow: inset 8px 8px 10px #c3c3c3,
+              inset -8px -8px 10px #cfcfcf;
+  }
+  
+  .majorCityCardBody {
+    margin: 13px 0 0 10px;
+    color: rgb(31, 31, 31);
+    font-size: 15px;
+  }
+  
+ 
+  .by-name {
+    font-weight: 700;
+  }
+  @media (max-width : 900px) {
+    .majorCityMain{
+        flex-direction: column;
+    }
+    .majorCityCard {
+      max-width: 90%;
+    }
+  }
