@@ -17,6 +17,6 @@ const formDataSchema = new mongoose.Schema({
     currentdate: String,
   });
   
-  const FormData = mongoose.model('FormData', formDataSchema);
 
-  export default  FormData;
+
+  export default  mongoose.models.FormData || mongoose.model("FormData" , formDataSchema);
