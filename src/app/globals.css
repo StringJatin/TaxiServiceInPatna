@@ -36,3 +36,8 @@ footer{
   background: rgb(34, 32, 32);
   list-style-type: none;
 }
+nav {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
