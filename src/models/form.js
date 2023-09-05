@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 const formDataSchema = new mongoose.Schema({
     activeMenu: String,
@@ -17,6 +18,6 @@ const formDataSchema = new mongoose.Schema({
     currentdate: String,
   });
   
-  const FormData = mongoose.model('FormData', formDataSchema);
+  export default mongoose.models.FormData ||  mongoose.model('FormData', formDataSchema);
 
-  export default  FormData;
+ 
