@@ -41,3 +41,32 @@ nav {
   color: #fff;
   padding: 20px;
 }
+table, td, th {
+  border: 1px solid #ddd;
+  text-align: left;
+  font-size:18px;
+  text-transform:capitalize;
+}
+th{
+    background: #000000d6;
+    color: #fff;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 15px;
+  white-space: nowrap;
+}
+
+table tbody tr:nth-child(odd) {
+    background: #69b2ebcc;
+    color: #000;
+    font-weight: 500;
+}
+tbody tr td:first-child{
+  width: 25px;
+}
