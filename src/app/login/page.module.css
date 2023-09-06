@@ -1,0 +1,69 @@
+.loginPageLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #d9edff;
+  }
+  
+  .loginBoxLogin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+    max-width: 1000px;
+    background-color: white;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.16);
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 12px;
+  }
+  
+  .illustrationWrapperLogin {
+    display: flex;
+    align-items: flex-end;
+    max-width: 800px;
+    min-height: 100%;
+    background-color: #fffdf2;
+  }
+  
+  .illustrationWrapperLogin img {
+    display: block;
+    width: 100%;
+  }
+  
+  .loginFormLogin {
+    flex: 1 0 100%;
+    max-width: 480px;
+    width: 100%;
+    padding: 60px;
+  }
+  
+  .formTitleLogin {
+    color: #333333;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 42px;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 0;
+  }
+  
+  .formGroupLogin {
+    margin-bottom: 20px;
+  }
+  
+  .loginFormButtonLogin {
+    width: 100%;
+    height: 42px;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    background-color: #335ddc;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .loginFormButtonLogin:hover {
+    background-color: #2b50c9;
+  }
+  
