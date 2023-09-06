@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from 'react'; // You can import other necessary hooks here
 import styles from './TripSummary.module.css'; // Adjust the path based on your project structure
 import SuccessBooking from '../SuccessBooking/SuccessBooking';
-import Axios from 'axios';
 
 const TripSummary = ({
   setIsSubmitted,
@@ -27,33 +26,47 @@ const TripSummary = ({
 
   const handleSubmitSummary = async (e) => {
     try {
-        e.preventDefault();
+      e.preventDefault();
       const currentDate = new Date().toLocaleDateString(); // Format: "28/7/2023"
       const formattedCurrentDate = formatDate(currentDate);
-      // Send POST request to backend API
-      await Axios.post('/api/formdata', {
-        activeMenu,
-        fromLocation,
-        toLocation,
-        date,
-        time,
-        phone,
-        city,
-        tourPackage,
-        returnDate,
-        days,
-        carType,
-        currentdate: formattedCurrentDate
+      
+      // Send POST request to backend API using fetch
+      const response = await fetch('/api/formdata', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          activeMenu,
+          fromLocation,
+          toLocation,
+          date,
+          time,
+          phone,
+          city,
+          tourPackage,
+          returnDate,
+          days,
+          carType,
+          currentdate: formattedCurrentDate
+        }),
       });
-      console.log('Form data saved successfully:');
-      // Add any additional logic or UI updates after successful form submission
+
+      if (response.ok) {
+        console.log('Form data saved successfully:');
+        // Add any additional logic or UI updates after successful form submission
+      } else {
+        console.error('Error saving form data:', response.statusText);
+        // Handle errors or display error messages to the user
+      }
+      
+      window.scrollTo(0, 0);
+      setIsSubmitted(true);
+      setShowSummary(false);
     } catch (error) {
       console.error('Error saving form data:', error);
       // Handle errors or display error messages to the user
     }
-    window.scrollTo(0, 0);
-    setIsSubmitted(true);
-    setShowSummary(false);
   };
 
   const formatDate = (dateString) => {
