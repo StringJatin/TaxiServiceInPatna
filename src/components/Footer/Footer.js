@@ -13,14 +13,14 @@ const Footer = () => {
   const [routedata, setroutedata] = useState([]);
 
   useEffect(() => {
-    fetch('https://backend-taxi.onrender.com/citypage')
+    fetch('http://localhost:3000/api/getCity')
       .then((response) => response.json())
       .then((data) => {
-        setcitydata(data.data);
+        setcitydata(data);
       })
       .catch((error) => console.error(error));
   }, []);
-
+  console.log("City data is", citydata);
   const uniqueFromRoutes = Array.from(new Set(routedata.map((route) => route.FromRoute)));
 
   useEffect(() => {
