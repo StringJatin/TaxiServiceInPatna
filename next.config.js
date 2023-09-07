@@ -6,9 +6,8 @@ const nextConfig = {
        // Add the hostname(s) for your images
     },
     // Other Next.js configuration options, if needed
-  };
+ 
   
-  module.exports = nextConfig;
   experimental: {
       appDir: true,
       serverComponentsExternalPackages: ["mongoose"],
@@ -25,6 +24,6 @@ const nextConfig = {
       }
       return config
   }
-}
+};
 
 module.exports = nextConfig
