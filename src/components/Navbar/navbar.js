@@ -26,7 +26,7 @@ const Navbar = () => {
         <Link href="/aboutUs">About Us</Link>
         <Link href="/contactUs">Contact Us</Link>
         <Link href="/ourServices">Our Services</Link>
-        <Link href="/AllBlogs">Blogs</Link>
+        <Link href="/blogs">Blogs</Link>
         {/* {loginStatus && <Link href="/AdminDashboard">Dashboard</Link>} */}
       </div>
     </div>

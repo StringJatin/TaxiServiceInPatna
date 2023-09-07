@@ -1,5 +1,12 @@
 // import ScrollToTop from '../components/ScrollToTop'; // Adjust the import path as needed
 import styles from './page.module.css'; // Adjust the import path and module name as needed
+import metaData from '../../../public/metaData.json'
+
+export const metadata = {
+  title: `${metaData.about.title}`,
+  description: `${metaData.about.description}`,
+  keywords: `${metaData.about.keywords}`
+}
 
 const AboutUsPage = () => {
   return (

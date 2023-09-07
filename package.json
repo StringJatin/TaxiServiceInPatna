@@ -30,6 +30,7 @@
     "eslint-config-next": "13.4.19",
     "express": "^4.18.2",
     "flatpickr": "^4.6.13",
+    "isomorphic-fetch": "^3.0.0",
     "isomorphic-unfetch": "^4.0.2",
     "javascript-time-ago": "^2.5.9",
     "mongoose": "^7.4.1",

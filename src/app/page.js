@@ -8,6 +8,14 @@ import AboutUsBanner from '@/components/AboutUsBanner/AboutUsBanner'
 import Majorcity from '@/components/MajorCity/MajorCity'
 import Partner from '@/components/PartnerPage/PartnerPage'
 import Footer from '@/components/Footer/Footer'
+import metaData from '../../public/metaData.json'
+
+export const metadata = {
+  title: `${metaData.home.title}`,
+  description: `${metaData.home.description}`,
+  keywords: `${metaData.home.keywords}`
+}
+
 const Home = () => {
   return (
     <div>
