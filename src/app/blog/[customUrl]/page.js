@@ -14,7 +14,15 @@ async function getData(customUrl) {
 
   return res.json();
 }
+export async function generateMetadata({ params }) {
 
+  const post = await getData(params.customUrl)
+  return {
+    title: post.metatitle,
+    description: post.metadescription,
+    keywords: post.keywords
+  };
+}
 const BlogPost = async ({ params }) => {
   const data = await getData(params.customUrl);
   const postInfo = data;
