@@ -1,5 +1,5 @@
 import dbConn from "@/utils/dbConn";
-import PostPage from "@/models/post";
+import RoutePage from "@/models/route";
 import {NextResponse} from "next/server";
 
 export async function POST(req, res) {
@@ -8,10 +8,10 @@ export async function POST(req, res) {
         const body = await req.json();
         await dbConn();
 
-       const res = await PostPage.create(body);
-        console.log("ccccc", res)
+        await RoutePage.create(body);
+
         return NextResponse.json({
-            message:"blog sent successfully!"
+            message:"route sent successfully!"
         }, {
             status: 200
         })

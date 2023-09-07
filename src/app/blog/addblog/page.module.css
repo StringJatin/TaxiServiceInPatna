@@ -1,0 +1,40 @@
+.createContainer{
+    padding: 10px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.createForm{
+    margin: auto;
+}
+.createForm .createTitle {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 10px !important;
+    border: 1px solid rgb(156, 156, 156)  !important ;
+}
+.createForm .createSummary{
+    width: 100%;
+    margin-top: 1rem;
+    padding: 10px !important;
+    border: 1px solid rgb(156, 156, 156) !important;
+} 
+.createForm .inputFile{
+    width: 100%;
+    margin-top: 1rem;
+    padding: 10px !important;
+    border: 1px solid rgb(156, 156, 156) !important;
+} 
+
+.createForm .createTextarea{
+    margin-top: 1rem;
+}
+.createPostBtn{
+    margin-top: 5px;
+    width: 100%;
+    background-color: #474fa0;
+    padding: 6px;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+
+}

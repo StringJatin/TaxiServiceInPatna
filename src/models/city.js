@@ -20,10 +20,6 @@ const citySchema = new mongoose.Schema({
       type: String,
       required: true,
     },
-    summary: {
-      type: String,
-      required: true,
-    },
     content: {
       type: String,
       required: true,
@@ -52,6 +48,6 @@ const citySchema = new mongoose.Schema({
       ans : String,
     }
   });
-  const CityData = mongoose.model('CityData', citySchema);
+  const CityData = mongoose.models.CityData ||  mongoose.model('CityData', citySchema);
 
   export default  CityData;

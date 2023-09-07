@@ -20,16 +20,16 @@ const routeSchema = new mongoose.Schema({
     required: true,
   },
   FromRoute: {
-    type: String,
-    required: true,
+    type: String
+
   },
   content: {
-    type: String,
-    required: true,
+    type: String
+
   },
   toRoute:{
-    type: String,
-    required: true,
+    type: String
+   
   },
   customUrl :{
     type: String,
@@ -56,6 +56,6 @@ const routeSchema = new mongoose.Schema({
   }
 });
 
-const RoutePage = mongoose.model('RoutePage', routeSchema);
+const RoutePage = mongoose.models.RoutePage ||  mongoose.model('RoutePage', routeSchema);
 
-module.exports = RoutePage;
+export default RoutePage;
