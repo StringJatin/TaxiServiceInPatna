@@ -1,13 +1,13 @@
 
 import React from 'react'
-import AddBlog from '../blog/addblog/page'
+import AdminDashboard from '@/components/Dashboard/Dashboard'
 
 
 const Dashboard = () => {
   return (
     <>
- 
-<AddBlog />
+ <AdminDashboard />
+
    
     </>
   )

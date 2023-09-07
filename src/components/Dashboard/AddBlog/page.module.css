@@ -1,7 +1,11 @@
 .createContainer{
-    padding: 10px;
+    padding: 2rem;
     max-width: 900px;
     margin: 0 auto;
+    background-color:azure;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-top: 2rem;
+
 }
 .createForm{
     margin: auto;

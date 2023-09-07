@@ -1,15 +1,19 @@
 'use client'
-import { useEffect, useState } from 'react';
-import { AiOutlineMenu, AiFillDelete } from 'react-icons/ai';
-import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { BiAddToQueue, BiBus, BiDirections, BiHome, BiPackage, BiShow } from 'react-icons/bi';
 import styles from './dashboard.module.css';
 import RoundTrip from './tables/RoundTrip';
 import OneWayTrip from './tables/OneWayTrip';
 import Local from './tables/Local';
 import CarPackage from './tables/CarPackage';
+import AddBlog from '@/components/Dashboard/AddBlog/AddBlog';
+import AddRoute from '@/components/Dashboard/AddRoute/AddRoute';
+import AddCity from './AddCity/AddCity';
 
-const AdminDashboard = ({ loginStatus, userRole, setLoginStatus }) => {
-  const [activeTab, setActiveTab] = useState('');
+const Dashboard = () => {
+  const [selectedOption, setSelectedOption] = useState('');
+  const [fields, setFields] = useState([]);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   
@@ -41,6 +45,12 @@ const AdminDashboard = ({ loginStatus, userRole, setLoginStatus }) => {
     { icon: <BiDirections size={30} />, label: 'Oneway trip' },
     { icon: <BiHome size={30} />, label: 'Local' },
     { icon: <BiPackage size={30} />, label: 'Car package' },
+    { icon: <BiAddToQueue size={30} />, label: 'Add Blog' },
+    { icon: <BiShow size={30} />, label: 'All Blogs' },
+    { icon: <BiAddToQueue size={30} />, label: 'Add City' },
+    { icon: <BiShow size={30} />, label: 'All Cities' },
+    { icon: <BiAddToQueue size={30} />, label: 'Add Route' },
+    { icon: <BiShow size={30} />, label: 'All Routes' },
   ];
 
   const handleOptionClick = (label) => {
@@ -88,9 +98,9 @@ const AdminDashboard = ({ loginStatus, userRole, setLoginStatus }) => {
             { selectedOption === 'Oneway trip' && <OneWayTrip data={data} setData={setData} />}
             {selectedOption === 'Local' && <Local data={data} setData={setData} /> }
             { selectedOption === 'Car package' && <CarPackage data={data} setData={setData} />}
-
-
-
+            { selectedOption === 'Add Blog' && <AddBlog  />}
+            { selectedOption === 'Add Route' && <AddRoute  />}
+            { selectedOption === 'Add City' && <AddCity  />}
 
 
 
@@ -100,4 +110,5 @@ const AdminDashboard = ({ loginStatus, userRole, setLoginStatus }) => {
     </div>
   );
 };
-export default AdminDashboard;
+
+export default Dashboard;

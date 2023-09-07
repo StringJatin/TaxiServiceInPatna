@@ -26,12 +26,11 @@ const formats = [
   'link', 'image', 'table',
 ];
 
-const AddRoute = () => {
+const AddBlog = () => {
   // Your state variables
   const [title, setTitle] = useState('');
-  const [summary, setSummary] = useState('');
   const [content, setContent] = useState('');
-  const [createdAt, setCreatedAt] = useState('20/09/09');
+  const [author, setAuthor] = useState('');
   const [customUrl, setCustomUrl] = useState('');
   const [metatitle, setMetaTitle] = useState('');
   const [keywords, setKeywords] = useState('');
@@ -42,7 +41,7 @@ const AddRoute = () => {
     try {
          e.preventDefault();
       // Send POST request to backend API
-      const res = await fetch('/api/createRoute', {
+      const res = await fetch('/api/createPost', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -53,7 +52,9 @@ const AddRoute = () => {
           keywords,
           title,
           content,
-          createdAt,
+          
+        
+          author,
           customUrl,
         }),
       });
@@ -73,6 +74,7 @@ const AddRoute = () => {
 
   return (
     <div className={styles.createContainer}>
+         <h2>Add blog</h2>
       <form className={styles.createForm} onSubmit={createNewPost}>
         <input
           type="text"
@@ -104,9 +106,14 @@ const AddRoute = () => {
         />
        
 
-      
-
        
+        <input
+          type="text"
+          placeholder="Enter the name of Author"
+          className={styles.createSummary}
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
 
         <input
           type="text"
@@ -130,4 +137,4 @@ const AddRoute = () => {
   );
 };
 
-export default AddRoute;
+export default AddBlog;
