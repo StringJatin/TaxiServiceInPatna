@@ -41,3 +41,6 @@ nav {
   color: #fff;
   padding: 20px;
 }
+a {
+  text-decoration: none;
+}

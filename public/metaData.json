@@ -1,0 +1,29 @@
+
+{
+    "home": {
+      "title": "Home Page",
+      "description": "Welcome to our website",
+      "keywords": "next.js, meta tags, SEO"
+    },
+    "about": {
+      "title": "About Us",
+      "description": "Learn more about our company",
+      "keywords": "about us, company, information"
+    },
+    "contact": {
+        "title": "Home Page",
+        "description": "Welcome to our website",
+        "keywords": "next.js, meta tags, SEO"
+      },
+      "blogs": {
+        "title": "About Us",
+        "description": "Learn more about our company",
+        "keywords": "about us, company, information"
+      },
+      "ourservices": {
+        "title": "About Us",
+        "description": "Learn more about our company",
+        "keywords": "about us, company, information"
+      }
+  }
+  
