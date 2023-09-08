@@ -30,3 +30,24 @@ export const GET = async (request, { params }) => {
       return new NextResponse("Database Error", { status: 500 });
     }
   };
+
+  export const PUT = async (request, { params }) => {
+    const id  = params.customUrl;
+  console.log("id is : " , id)
+    try {
+      await dbConn();
+      const newdata = await request.json();
+      const {Newmetatitle,
+            Newmetadescription,
+            Newkeywords,
+            Newtitle,
+            Newcontent,
+           Newauthor,
+            NewcustomUrl} =newdata
+      const post = await PostPage.updateMany({metatitle : Newmetatitle , metadescription : Newmetadescription , keywords: Newkeywords , title : Newtitle , content : Newcontent, author : Newauthor, customUrl: NewcustomUrl });
+  
+      return new NextResponse(JSON.stringify(post), { status: 200 });
+    } catch (err) {
+      return new NextResponse("Database Error", { status: 500 });
+    }
+  };

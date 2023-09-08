@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import DeleteBlog from "@/components/deleteblog/delblog";
+import Link from "next/link";
 
 async function getData(customUrl) {
   const res = await fetch(`http://localhost:3000/api/getPosts/${customUrl}`, {
@@ -30,6 +31,7 @@ const BlogPost = async ({ params }) => {
   return (
     
     <div className={styles.container}>
+      <Link href={`/blog/editBlog/${data.customUrl}`}>Edit Blog</Link>
      <DeleteBlog postId={data._id} />
       <div className={styles.top}>
         <div className={styles.info}>
