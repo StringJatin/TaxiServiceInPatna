@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import Accordion from "react-accordion";
+
 
 async function getData(customUrl) {
   const res = await fetch(`http://localhost:3000/api/getCity/${customUrl}`, {

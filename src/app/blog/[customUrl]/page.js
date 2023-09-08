@@ -30,6 +30,7 @@ const BlogPost = async ({ params }) => {
   return (
     
     <div className={styles.container}>
+     <DeleteBlog postId={data._id} />
       <div className={styles.top}>
         <div className={styles.info}>
           <h1 className={styles.title}>{data.title}</h1>
