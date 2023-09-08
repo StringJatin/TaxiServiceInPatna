@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
 
-const Blog = async () => {
+const AllRoute = async () => {
   async function getData() {
     try {
       const res = await fetch("http://localhost:3000/api/getRoute", {
@@ -61,4 +61,4 @@ const Blog = async () => {
   );
 };
 
-export default Blog;
+export default AllRoute;

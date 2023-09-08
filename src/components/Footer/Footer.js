@@ -20,7 +20,7 @@ const Footer = () => {
       })
       .catch((error) => console.error(error));
   }, []);
-  console.log("City data is", citydata);
+ 
   
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const Footer = () => {
       .catch((error) => console.error(error));
   }, []);
   const uniqueFromRoutes = Array.from(new Set(routedata.map((route) => route.FromRoute)));
-  console.log("This is uniquefromroute",uniqueFromRoutes);
+  
   const renderData = () => {
     const groupedRoutes = {};
 

@@ -1,31 +1,28 @@
-import React from "react";
+'use client'
+import React, { useEffect, useState } from 'react'
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
 
-const AllCity = async () => {
-  async function getData() {
-    try {
-      const res = await fetch("http://localhost:3000/api/getCity", {
-        cache: "no-store",
-      });
-      if (!res.ok) {
-        console.log("Failed to fetch data. Response status:", res.status);
-        throw new Error("Failed to fetch data");
-      }
+const AllCity = () => {
+    const [posts, setPosts] = useState([]);
 
-      const postData = await res.json();
-      return postData;
-    } catch (error) {
-      console.error("Error fetching form data:", error);
-    }
-  }
-  const data = await getData();
+    useEffect(() => {
+        fetch('http://localhost:3000/api/getCity')
+          .then((response) => response.json())
+          .then((data) => {
+           
+            setPosts(data); // Assuming data is an object with a "data" property containing the posts array
+          })
+          .catch((error) => console.error(error));
+      }, []);
+      
   return (
-    <div className={styles.container}>
+    <>
+     <div className={styles.container}>
       <h2 className={styles.mainTitle}>Cities</h2>
       <div className={styles.mainContainer}>
-        {data.map((item) => (
+        {posts.map((item) => (
           <div className={styles.blogContainer}>
             <div className={styles.post}>
               <div className={styles.BlogImage}>
@@ -49,7 +46,7 @@ const AllCity = async () => {
                 <p className={styles.Summary}>
                   {" "}
                   {item.metadescription.length > 100
-                    ? `${item.metadescription.substring(0, 200)}...`
+                    ? `${item.metadescription.substring(0, 100)}...`
                     : item.metadescription}{" "}
                 </p>
               </div>
@@ -58,6 +55,7 @@ const AllCity = async () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

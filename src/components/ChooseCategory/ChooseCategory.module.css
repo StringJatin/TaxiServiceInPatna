@@ -25,6 +25,7 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
   }
   .carOption img{
   height: 55px;
@@ -60,6 +61,11 @@
   }
   .facilities-category{
     width: 50%;
+    margin: auto;
+  }
+  .hiddenTextPhone{
+    width: 100%;
+    text-align: center;
     margin: auto;
   }
   /* Adjust the styles for mobile view */

@@ -85,7 +85,6 @@
     .blogContainer {
       width: 85%; /* Display one post per row on mobile devices */
       margin-bottom: 1rem;
-      height: 500px;
     }
   
     .mainTitle {

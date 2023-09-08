@@ -17,7 +17,7 @@ const Local = ({ data }) => {
     return `${year}-${month}-${day}`;
   }
 
-  let serialNumber = 0;
+  let serialNumber = 1;
 
   return (
     <div>
@@ -50,7 +50,7 @@ const Local = ({ data }) => {
         <tbody>
           {filteredData.map(item => (
             <tr key={item._id}>
-              <td>{serialNumber + 1}</td>
+              <td>{serialNumber++}</td>
               <td>{item.date}</td>
               <td>{item.phone}</td>
               <td>{item.city}</td>

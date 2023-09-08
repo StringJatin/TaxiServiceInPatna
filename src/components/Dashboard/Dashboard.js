@@ -10,6 +10,9 @@ import CarPackage from './tables/CarPackage';
 import AddBlog from '@/components/Dashboard/AddBlog/AddBlog';
 import AddRoute from '@/components/Dashboard/AddRoute/AddRoute';
 import AddCity from './AddCity/AddCity';
+import AllBlog from './AllBlog/AllBlog'
+import AllCity from './AllCity/AllCity';
+import AllRoute from './AllRoute/AllRoute';
 
 const Dashboard = () => {
   const [selectedOption, setSelectedOption] = useState('');
@@ -69,8 +72,6 @@ const Dashboard = () => {
 
   };
 
-
-
   return (
     <div className={styles.dashboard}>
       <div className={styles.sidebar}>
@@ -101,6 +102,9 @@ const Dashboard = () => {
             { selectedOption === 'Add Blog' && <AddBlog  />}
             { selectedOption === 'Add Route' && <AddRoute  />}
             { selectedOption === 'Add City' && <AddCity  />}
+            { selectedOption === 'All Blogs' && <AllBlog  />}
+            { selectedOption === 'All Cities' && <AllCity  />}
+            { selectedOption === 'All Routes' && <AllRoute  />}
 
 
 
