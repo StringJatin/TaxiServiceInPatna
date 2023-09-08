@@ -76,6 +76,19 @@
     color: #24344d;
     font-size: 0.9rem;
   }
+  .goBackLink {
+    text-decoration:none;
+    color: blue; /* Link text color */
+    font-weight:400;
+    transition: color 0.2s; /* Smooth color transition on hover */
+    padding: 12px;
+    cursor: pointer;
+    /* You can add additional styles such as text decoration or font size here */
+  }
+  
+  .goBackLink:hover {
+    color: #2980b9; /* Link text color on hover */
+  }
   @media (max-width: 768px) {
     .mainContainer {
       width: 85%;

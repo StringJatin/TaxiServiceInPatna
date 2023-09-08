@@ -23,6 +23,9 @@ const AllCity = async () => {
   const data = await getData();
   return (
     <div className={styles.container}>
+      <Link href="/dashboard"> {/* Add your dashboard URL */}
+        <div className={styles.goBackLink}>Go Back To Dashboard</div>
+      </Link>
       <h2 className={styles.mainTitle}>Cities</h2>
       <div className={styles.mainContainer}>
         {data.map((item) => (

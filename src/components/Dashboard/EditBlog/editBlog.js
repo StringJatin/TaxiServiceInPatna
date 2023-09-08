@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import 'react-quill/dist/quill.snow.css';
 import styles from './page.module.css';
-
+import Link from 'next/link';
 import dynamic from 'next/dynamic';
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
@@ -77,8 +77,12 @@ console.log(Newmetatitle,
   };
 
   return (
+    <>
+     <Link href={`/blog/${customUrl}`}> {/* Add your dashboard URL */}
+        <div className={styles.goBackLink}>Go Back</div>
+      </Link>
     <div className={styles.createContainer}>
-         <h2>Add blog</h2>
+         <h2>Edit blog</h2>
       <form className={styles.createForm} onSubmit={createNewPost}>
         <input
           type="text"
@@ -131,10 +135,12 @@ console.log(Newmetatitle,
           className={styles.createTextarea}
           onChange={(newValue) => setNewContent(newValue)}
         />
+        
 
         <button className={styles.createPostBtn}>Update Post</button>
       </form>
     </div>
+    </>
   );
 };
 

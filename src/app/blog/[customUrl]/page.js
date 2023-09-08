@@ -31,8 +31,15 @@ const BlogPost = async ({ params }) => {
   return (
     
     <div className={styles.container}>
-      <Link href={`/blog/editBlog/${data.customUrl}`}>Edit Blog</Link>
+       <Link href="/dashboard"> {/* Add your dashboard URL */}
+        <div className={styles.goBackLink}>Go Back To Dashboard</div>
+      </Link>
+      <div className={styles.buttonContainer}>
+      <Link href={`/blog/editBlog/${data.customUrl}`}> <button className={`${styles.button} ${styles.editButton}`}>
+        Edit Post
+      </button> </Link>
      <DeleteBlog postId={data._id} />
+     </div>
       <div className={styles.top}>
         <div className={styles.info}>
           <h1 className={styles.title}>{data.title}</h1>

@@ -10,14 +10,14 @@ const DeleteBlog = ({ postId }) => {
     const handleDeleteClick = async () => {
         try {
           // Make a DELETE request to the server to delete the field
-          const response = await fetch(`/api/getPosts/${postId}`, {
+          const response = await fetch(`/api/getCity/${postId}`, {
             method: 'DELETE',
           });
       
           if (response.ok) {
             // Blog post deleted successfully
             alert('Blog post deleted successfully!');
-            router.push('/blog');
+            router.push('/city');
 
           } else {
             // Handle the case where the delete request was not successful

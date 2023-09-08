@@ -7,10 +7,26 @@
     width: 85%;
     
   }
+  .buttonContainer{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    justify-content:space-between;
+  }
   .title{
     text-align: center;
   }
-  
+  .button {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  .editButton {
+    background-color: #3498db;
+    color: #fff;
+  }
   .postPage {
     padding: 1rem;
     max-width: 800px;
@@ -78,7 +94,18 @@
     display: block;
     animation: fadeIn 0.3s;
   }
+  .goBackLink {
+    text-decoration:none;
+    color: black; /* Link text color */
+    font-weight:200;
+    transition: color 0.2s; /* Smooth color transition on hover */
+    padding: 12px;
+    /* You can add additional styles such as text decoration or font size here */
+  }
   
+  .goBackLink:hover {
+    color: #2980b9; /* Link text color on hover */
+  }
   /* Fade-in animation for the answer */
   @keyframes fadeIn {
     from {

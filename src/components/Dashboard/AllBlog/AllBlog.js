@@ -16,7 +16,7 @@ const AllBlog = () => {
           })
           .catch((error) => console.error(error));
       }, []);
-      console.log(posts);
+
   return (
     <>
      <div className={styles.container}>

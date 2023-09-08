@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import DeleteBlog from "@/components/deletecity/delcity";
+import Link from "next/link";
 
 
 async function getData(customUrl) {
@@ -33,6 +35,15 @@ const CityPost = async ({ params }) => {
     
     return (
         <div className={styles.container}>
+           <Link href="/dashboard"> {/* Add your dashboard URL */}
+        <div className={styles.goBackLink}>Go Back To Dashboard</div>
+      </Link>
+      <div className={styles.buttonContainer}>
+      <Link href={`/city/editcity/${data.customUrl}`}> <button className={`${styles.button} ${styles.editButton}`}>
+        Edit Post
+      </button> </Link>
+     <DeleteBlog postId={data._id} />
+     </div>
         <div className={styles.postPage}>
           <h1>{postInfo.title}</h1>
           <div>{postInfo.metadescription}</div>
