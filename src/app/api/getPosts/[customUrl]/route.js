@@ -17,13 +17,14 @@ export const GET = async (request, { params }) => {
   };
   
   export const DELETE = async (request, { params }) => {
+    console.log("id by ayush : ",params)
     const { id } = params;
   
     try {
-      await connect();
-  
-      await Post.findByIdAndDelete(id);
-  
+      await dbConn();
+      // const deletePost = PostPage.find((post) => post._id === parseInt(id))
+      const res = await PostPage.deleteOne(id);
+      console.log("post deleted" , res)
       return new NextResponse("Post has been deleted", { status: 200 });
     } catch (err) {
       return new NextResponse("Database Error", { status: 500 });

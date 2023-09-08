@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import DeleteBlog from "@/components/deleteblog/delblog";
 
 async function getData(customUrl) {
   const res = await fetch(`http://localhost:3000/api/getPosts/${customUrl}`, {
@@ -16,11 +17,17 @@ async function getData(customUrl) {
 }
 
 
+
+
+
 const BlogPost = async ({ params }) => {
   const data = await getData(params.customUrl);
   console.log(data);
   return (
+    
     <div className={styles.container}>
+    {/* <EditBlog customUrl={data.customUrl} /> */}
+      <DeleteBlog postId={data._id} />
       <div className={styles.top}>
         <div className={styles.info}>
           <h1 className={styles.title}>{data.title}</h1>
