@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 
 
 async function getData(customUrl) {
-  const res = await fetch(`http://localhost:3000/api/getCity/${customUrl}`, {
+  const res = await fetch(`http://localhost:3000/api/getRoute/${customUrl}`, {
     cache: "no-store",
   });
 

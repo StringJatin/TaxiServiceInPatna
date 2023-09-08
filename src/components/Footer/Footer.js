@@ -21,17 +21,18 @@ const Footer = () => {
       .catch((error) => console.error(error));
   }, []);
   console.log("City data is", citydata);
-  const uniqueFromRoutes = Array.from(new Set(routedata.map((route) => route.FromRoute)));
+  
 
   useEffect(() => {
-    fetch('https://backend-taxi.onrender.com/routepage')
+    fetch('http://localhost:3000/api/getRoute')
       .then((response) => response.json())
       .then((data) => {
-        setroutedata(data.data);
+        setroutedata(data);
       })
       .catch((error) => console.error(error));
   }, []);
-
+  const uniqueFromRoutes = Array.from(new Set(routedata.map((route) => route.FromRoute)));
+  console.log("This is uniquefromroute",uniqueFromRoutes);
   const renderData = () => {
     const groupedRoutes = {};
 
@@ -66,7 +67,7 @@ const Footer = () => {
     const selectedRoute = routedata.find((route) => route.FromRoute === fromRoute && route.toRoute === toRoute);
     if (selectedRoute) {
       return (
-        <Link href={`/routes/${selectedRoute.customUrl}`}>
+        <Link href={`/route/${selectedRoute.customUrl}`}>
           <p>{toRoute}</p>
         </Link>
       );
