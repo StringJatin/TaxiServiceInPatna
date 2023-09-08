@@ -35,11 +35,13 @@ const AddBlog = () => {
   const [metatitle, setMetaTitle] = useState('');
   const [keywords, setKeywords] = useState('');
   const [metadescription, setMetaDescription] = useState('');
-
+  const [media,setMedia] = useState("")
   const createNewPost = async (e) => {
     e.preventDefault();
     try {
          e.preventDefault();
+         const mediaUrl =  await imageUpload()
+         console.log("media" , mediaUrl)
       // Send POST request to backend API
       const res = await fetch('/api/createPost', {
         method: 'POST',
@@ -53,7 +55,7 @@ const AddBlog = () => {
           title,
           content,
           
-        
+          mediaUrl,
           author,
           customUrl,
         }),
@@ -71,7 +73,18 @@ const AddBlog = () => {
       // Handle errors or display error messages to the user
     }
   };
-
+  const imageUpload = async ()=>{
+    const data =  new FormData()
+    data.append('file',media)
+    data.append('upload_preset',"mystore")
+    data.append('cloud_name',"dsxl2vpgs")
+    const res = await fetch("https://api.cloudinary.com/v1_1/dsxl2vpgs/image/upload",{
+      method:"POST",
+      body:data
+    })
+    const res2  = await res.json()
+    return res2.url
+}
   return (
     <div className={styles.createContainer}>
          <h2>Add blog</h2>
@@ -105,6 +118,16 @@ const AddBlog = () => {
           onChange={(e) => setKeywords(e.target.value)}
         />
        
+          
+          
+            <input type="file" 
+             className={styles.createSummary}
+              accept="image/*"
+              onChange={(e)=>setMedia(e.target.files[0])}
+            />
+        <img className="responsive-img" src={media?URL.createObjectURL(media):""} />
+       
+      
 
        
         <input
