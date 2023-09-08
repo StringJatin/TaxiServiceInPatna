@@ -16,18 +16,19 @@ async function getData(customUrl) {
   return res.json();
 }
 
-
-
-
-
+  const post = await getData(params.customUrl)
+  return {
+    title: post.metatitle,
+    description: post.metadescription,
+    keywords: post.keywords
+  };
+}
 const BlogPost = async ({ params }) => {
   const data = await getData(params.customUrl);
-  console.log(data);
+  const postInfo = data;
   return (
     
     <div className={styles.container}>
-    {/* <EditBlog customUrl={data.customUrl} /> */}
-      <DeleteBlog postId={data._id} />
       <div className={styles.top}>
         <div className={styles.info}>
           <h1 className={styles.title}>{data.title}</h1>
@@ -45,20 +46,15 @@ const BlogPost = async ({ params }) => {
             <span className={styles.username}>{data.username}</span>
           </div>
         </div>
-        <div className={styles.imageContainer}>
-          <Image
-            src={data.img}
-            alt=""
-            fill={true}
-            className={styles.image}
-          />
+        <a href="" className="author">
+          {" "}
+          by {postInfo.author}{" "}
+        </a>
+        <div className={styles.imagePost}>
+          <img src={`https://backend-taxi.onrender.com/${postInfo.cover}`} />
         </div>
+        <div dangerouslySetInnerHTML={{ __html: postInfo.content }} />
       </div>
-      <div className={styles.content}>
-        <p className={styles.text}>
-         {data.content}
-        </p>
-      </div> 
     </div>
   );
 };

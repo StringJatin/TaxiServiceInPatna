@@ -9,7 +9,6 @@ const Blog = async () => {
     const res = await fetch("http://localhost:3000/api/getPosts", {
       cache: "no-store",
     });
-  console.log("resssss",res)
     if (!res.ok) {
       console.log("Failed to fetch data. Response status:", res.status);
       throw new Error("Failed to fetch data");
