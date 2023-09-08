@@ -32,6 +32,7 @@ const AllBlog = () => {
                <Image src={item.mediaUrl} alt="" onResize="responsive" height={1000} width={1000} />
                </Link>
            </div>
+           
            <div className={styles.texts}>
               <Link href={`/blog/${item.customUrl}`}><h2>{item.title}</h2></Link> 
                <p className={styles.info}>
