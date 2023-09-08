@@ -3,6 +3,7 @@ const nextConfig = {
     images: {
       domains: ['mixkit.imgix.net'], 
       domains : ['backend-taxi.onrender.com'],
+      domains : ['res.cloudinary.com'],
        // Add the hostname(s) for your images
     },
     // Other Next.js configuration options, if needed
@@ -11,11 +12,6 @@ const nextConfig = {
   experimental: {
       appDir: true,
       serverComponentsExternalPackages: ["mongoose"],
-  },
-  images: {
-      remotePatterns: [
-          { hostname: 'res.cloudinary.com', protocol: 'https', port: '' }
-      ]
   },
   webpack(config) {
       config.experiments = {

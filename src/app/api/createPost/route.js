@@ -1,5 +1,5 @@
 import dbConn from "@/utils/dbConn";
-import PostPage from "@/models/post";
+import PostPage from "@/models/post"
 import {NextResponse} from "next/server";
 
 export async function POST(req, res) {

@@ -69,6 +69,7 @@ console.log(Newmetatitle,
 
       const blog = await res.json();
       console.log('Post Created successfully:', blog);
+      
       // Add any additional logic or UI updates after successful form submission
     } catch (error) {
       console.error('Error saving form data:', error);

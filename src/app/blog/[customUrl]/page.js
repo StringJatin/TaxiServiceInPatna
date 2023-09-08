@@ -48,10 +48,10 @@ const BlogPost = async ({ params }) => {
           </p>
           <div className={styles.author}>
             <Image
-              src={data.img}
+              src={data.mediaUrl}
               alt=""
-              width={40}
-              height={40}
+              width={1200}
+              height={630}
               className={styles.avatar}
             />
             <span className={styles.username}>{data.username}</span>

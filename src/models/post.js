@@ -29,7 +29,11 @@ const postSchema = new mongoose.Schema({
   },
   customUrl :{
     type: String,
-  }
+  },
+  mediaUrl:{
+    type:String,
+    required:true
+}
 });
 
 
