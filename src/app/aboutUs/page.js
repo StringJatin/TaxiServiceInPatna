@@ -24,11 +24,11 @@ const AboutUsPage = () => {
               <p className={`${styles.textBlk} ${styles.description}`}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fermentum pulvinar ullamcorper suspendisse ac eget. Pellentesque tempus leo in ullamcorper quis vestibulum ligula elementum ut. Congue in dignissim tincidunt ut dolor eu. Mi, eget posuere vitae sed purus nisl lorem.
               </p>
-              <a>
+          
                 <button className={styles.explore}>
                   View More
                 </button>
-              </a>
+             
             </div>
             <div className={styles.videoContainer}>
               <iframe
