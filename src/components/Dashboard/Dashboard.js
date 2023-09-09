@@ -1,6 +1,5 @@
-'use client'
+"use Client"
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { BiAddToQueue, BiBus, BiDirections, BiHome, BiPackage, BiShow } from 'react-icons/bi';
 import styles from './dashboard.module.css';
 import RoundTrip from './tables/RoundTrip';
@@ -10,16 +9,41 @@ import CarPackage from './tables/CarPackage';
 import AddBlog from '@/components/Dashboard/AddBlog/AddBlog';
 import AddRoute from '@/components/Dashboard/AddRoute/AddRoute';
 import AddCity from './AddCity/AddCity';
-import AllBlog from './AllBlog/AllBlog'
+import AllBlog from './AllBlog/AllBlog';
 import AllCity from './AllCity/AllCity';
 import AllRoute from './AllRoute/AllRoute';
 
-const Dashboard = () => {
+const Dashboard = ({ user }) => {
+ 
   const [selectedOption, setSelectedOption] = useState('');
   const [fields, setFields] = useState([]);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  
+  useEffect(() => {
+    if (user.role === 'admin' || user.role === 'lead') {
+      setSelectedOption('Round trip');
+    } else if (user.role === 'editor') {
+      setSelectedOption('All Blogs');
+    }
+  }, [user.role]);
+  // Define roles and their corresponding allowed options
+  const rolePermissions = {
+    admin: [
+      'Round trip',
+      'Oneway trip',
+      'Local',
+      'Car package',
+      'Add Blog',
+      'All Blogs',
+      'Add City',
+      'All Cities',
+      'Add Route',
+      'All Routes',
+    ],
+    lead: ['Round trip', 'Oneway trip', 'Local', 'Car package'],
+    editor: ['Add Blog', 'All Blogs', 'Add City', 'All Cities', 'Add Route', 'All Routes'],
+  };
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -59,7 +83,6 @@ const Dashboard = () => {
   const handleOptionClick = (label) => {
     setSelectedOption(label);
 
-    
     // Map the selected option to its corresponding fields
     const optionToFields = {
       'Round trip': ['S.No', 'From', 'To', 'Date', 'Time', 'Phone', 'ReturnDate', 'CarType'],
@@ -69,22 +92,26 @@ const Dashboard = () => {
     };
 
     setFields(optionToFields[label]);
-
   };
+
+  const allowedOptions = rolePermissions[user.role] || [];
 
   return (
     <div className={styles.dashboard}>
       <div className={styles.sidebar}>
         <ul className={styles.optionList}>
           {options.map((option, index) => (
-            <li
-              key={index}
-              className={styles.optionItem}
-              onClick={() => handleOptionClick(option.label)}
-            >
-              {option.icon}
-              {option.label}
-            </li>
+            // Check if the option label is allowed for the user's role
+            allowedOptions.includes(option.label) && (
+              <li
+                key={index}
+                className={styles.optionItem}
+                onClick={() => handleOptionClick(option.label)}
+              >
+                {option.icon}
+                {option.label}
+              </li>
+            )
           ))}
         </ul>
       </div>
@@ -94,20 +121,16 @@ const Dashboard = () => {
         ) : (
           <div className={styles.tableContainer}>
             {/* Table components */}
-
-            { selectedOption === 'Round trip' && <RoundTrip data={data} setData={setData} /> }
-            { selectedOption === 'Oneway trip' && <OneWayTrip data={data} setData={setData} />}
-            {selectedOption === 'Local' && <Local data={data} setData={setData} /> }
-            { selectedOption === 'Car package' && <CarPackage data={data} setData={setData} />}
-            { selectedOption === 'Add Blog' && <AddBlog  />}
-            { selectedOption === 'Add Route' && <AddRoute  />}
-            { selectedOption === 'Add City' && <AddCity  />}
-            { selectedOption === 'All Blogs' && <AllBlog  />}
-            { selectedOption === 'All Cities' && <AllCity  />}
-            { selectedOption === 'All Routes' && <AllRoute  />}
-
-
-
+            {selectedOption === 'Round trip' && <RoundTrip data={data} setData={setData} />}
+            {selectedOption === 'Oneway trip' && <OneWayTrip data={data} setData={setData} />}
+            {selectedOption === 'Local' && <Local data={data} setData={setData} />}
+            {selectedOption === 'Car package' && <CarPackage data={data} setData={setData} />}
+            {selectedOption === 'Add Blog' && <AddBlog />}
+            {selectedOption === 'Add Route' && <AddRoute />}
+            {selectedOption === 'Add City' && <AddCity />}
+            {selectedOption === 'All Blogs' && <AllBlog />}
+            {selectedOption === 'All Cities' && <AllCity />}
+            {selectedOption === 'All Routes' && <AllRoute />}
           </div>
         )}
       </div>
