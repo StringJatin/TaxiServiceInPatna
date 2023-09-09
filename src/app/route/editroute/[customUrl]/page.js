@@ -1,21 +1,22 @@
-import EditBlog from '@/components/Dashboard/EditRoute/EditRoute'
-import React from 'react'
-const getPostID = async(customUrl) => {
-    try{
-        const res = await fetch(`http://localhost:3000/api/getRoute/${customUrl}`, {
-            cache: "no-store",
-        })
+import EditBlog from "@/components/Dashboard/EditRoute/EditRoute";
+import React from "react";
+const getPostID = async (customUrl) => {
+  try {
+    const res = await fetch(`http://localhost:3000/api/getRoute/${customUrl}`, {
+      cache: "no-store",
+    });
 
-        if(!res.ok){
-            throw new Error("Failed to fetch topic");
-        }
-
-        return res.json();
-    }catch (error){
-        console.log(error);
+    if (!res.ok) {
+      throw new Error("Failed to fetch topic");
     }
-}
+
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
 const EditBlogPage = async ({ params }) => {
+
     const { customUrl } = params;
     console.log("Custom is ",customUrl)
     const post = await getPostID(customUrl);
@@ -26,4 +27,4 @@ const EditBlogPage = async ({ params }) => {
   )
 }
 
-export default EditBlogPage
+export default EditBlogPage;

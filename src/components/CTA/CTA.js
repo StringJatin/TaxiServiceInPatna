@@ -21,9 +21,9 @@ const Cta = () => {
             </div>
 
             <div className={styles.textlgright}>
-              <a className={`${styles.btn} ${styles.btnpurple}`} href="#">
+              <p className={`${styles.btn} ${styles.btnpurple}`} href="#">
                 +91 8877665544
-              </a>
+              </p>
               <button
                 className={`${styles.btn} ${styles.btnlight} ${styles.btnglowing}`}
                 onClick={handleBookNowCta}

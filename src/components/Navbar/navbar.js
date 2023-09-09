@@ -22,11 +22,11 @@ const Navbar = () => {
       </div>
 
       <div className={styles.navLinks}>
-        <Link href="/">Home</Link>
-        <Link href="/aboutUs">About Us</Link>
-        <Link href="/contactUs">Contact Us</Link>
-        <Link href="/ourServices">Our Services</Link>
-        <Link href="/blog">Blogs</Link>
+        <Link href="/" legacyBehavior>Home</Link>
+        <Link href="/aboutUs" legacyBehavior>About Us</Link>
+        <Link href="/contactUs" legacyBehavior>Contact Us</Link>
+        <Link href="/ourServices" legacyBehavior>Our Services</Link>
+        <Link href="/blog" legacyBehavior>Blogs</Link>
         {/* {loginStatus && <Link href="/AdminDashboard">Dashboard</Link>} */}
       </div>
     </div>
