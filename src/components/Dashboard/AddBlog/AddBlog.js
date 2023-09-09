@@ -36,6 +36,17 @@ const AddBlog = () => {
   const [keywords, setKeywords] = useState('');
   const [metadescription, setMetaDescription] = useState('');
   const [media,setMedia] = useState("")
+  const reset = () =>{
+    setMetaTitle("");
+    setMetaDescription("");
+    setKeywords("");
+    setTitle('');
+    setAuthor('');
+    setContent('');
+    setCustomUrl('');
+   setMedia('')
+   }
+
   const createNewPost = async (e) => {
     e.preventDefault();
     try {
@@ -67,6 +78,8 @@ const AddBlog = () => {
 
       const blog = await res.json();
       console.log('Post Created successfully:', blog);
+      alert('Blog page created successfully');
+      reset();
       // Add any additional logic or UI updates after successful form submission
     } catch (error) {
       console.error('Error saving form data:', error);

@@ -19,9 +19,9 @@ const EditBlogPage = async ({ params }) => {
     const { customUrl } = params;
     const post = await getPostID(customUrl);
     console.log(post)
-    const {_id, metatitle , metadescription , keywords, title , content , author } = post;
+    const {_id, metatitle , metadescription , keywords, title , content , author , mediaUrl } = post;
   return (
-   <EditBlog id={_id}  metatitle = {metatitle} metadescription = {metadescription} keywords = {keywords} title = {title} content = {content} author = {author} customUrl ={customUrl} />
+   <EditBlog id={_id}  metatitle = {metatitle} metadescription = {metadescription} keywords = {keywords} title = {title} content = {content} author = {author} customUrl ={customUrl} media={mediaUrl} />
   )
 }
 

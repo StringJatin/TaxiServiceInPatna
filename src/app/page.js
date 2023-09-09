@@ -9,16 +9,26 @@ import Majorcity from '@/components/MajorCity/MajorCity'
 import Partner from '@/components/PartnerPage/PartnerPage'
 import Footer from '@/components/Footer/Footer'
 import metaData from '../../public/metaData.json'
+import {  NextSeo } from 'next-seo'
 
 export const metadata = {
   title: `${metaData.home.title}`,
   description: `${metaData.home.description}`,
-  keywords: `${metaData.home.keywords}`
+  keywords: `${metaData.home.keywords}`,
+  metadataBase: new URL(`${metaData.home.canonical}`),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+      'de-DE': '/de-DE',
+    },
+  },
 }
 
 const Home = () => {
   return (
     <div>
+    
       <HeroHome />
       <Banner/>
       <Ourservices/>

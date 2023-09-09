@@ -27,7 +27,7 @@ const formats = [
   'link', 'image', 'table',
 ];
 
-const EditBlog = ({id , metatitle , metadescription , keywords, title , content , footTitle, customUrl,faq1, faq2, faq3, faq4, faq5 }) => {
+const EditBlog = ({id , metatitle , metadescription , keywords, title , content , footTitle, media, customUrl,faq1, faq2, faq3, faq4, faq5 }) => {
     const router = useRouter();
   // Your state variables
   const [Newtitle, setNewTitle] = useState(title);
@@ -37,7 +37,7 @@ const EditBlog = ({id , metatitle , metadescription , keywords, title , content 
   const [Newkeywords, setNewKeywords] = useState(keywords);
   const [Newmetadescription, setNewMetaDescription] = useState(metadescription);
   const [NewfootTitle, setNewFootTitle] = useState(footTitle);
-
+  const [Newmedia,setNewMedia] = useState("")
   const [Newfaq1Ques, setNewFaq1Ques] = useState(faq1.que);
   const [Newfaq1Ans, setNewFaq1Ans] = useState(faq1.ans);
 
@@ -59,6 +59,7 @@ console.log(Newtitle);
     try {
          e.preventDefault();
       // Send POST request to backend API
+      const NewmediaUrl =  await imageUpload()
       const res = await fetch(`/api/getCity/${id}`, {
         method: 'PUT',
         headers: {
@@ -71,6 +72,7 @@ console.log(Newtitle);
             Newmetatitle,
             Newkeywords,
             Newmetadescription,
+            NewmediaUrl,
             NewfootTitle,
             Newfaq1Ques,
             Newfaq1Ans,
@@ -90,7 +92,7 @@ console.log(Newtitle);
       }
 
       const blog = await res.json();
-      alert('Post Updated successfully:');
+      alert('City Updated successfully:');
       router.push('/city');
       // Add any additional logic or UI updates after successful form submission
     } catch (error) {
@@ -99,7 +101,18 @@ console.log(Newtitle);
     }
   };
 
- 
+  const imageUpload = async ()=>{
+    const data =  new FormData()
+    data.append('file',Newmedia)
+    data.append('upload_preset',"mystore")
+    data.append('cloud_name',"dsxl2vpgs")
+    const res = await fetch("https://api.cloudinary.com/v1_1/dsxl2vpgs/image/upload",{
+      method:"POST",
+      body:data
+    })
+    const res2  = await res.json()
+    return res2.url
+}
 
   return (
     <>
@@ -137,6 +150,12 @@ console.log(Newtitle);
           value={Newkeywords}
           onChange={(e) => setNewKeywords(e.target.value)}
         />
+         <input type="file" 
+             className={styles.createSummary}
+              accept="image/*"
+              onChange={(e)=>setNewMedia(e.target.files[0])}
+            />
+
        <input
           type="text"
           placeholder="Enter FootTitle"
@@ -236,7 +255,7 @@ console.log(Newtitle);
                     onChange={(e) => setNewFaq5Ans(e.target.value)}
                 />
 
-        <button className={styles.createPostBtn}>Update Post</button>
+        <button className={styles.createPostBtn}>Update City</button>
       </form>
     </div>
     </>

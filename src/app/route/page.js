@@ -2,6 +2,21 @@ import React from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import metaData from '../../../public/metaData.json'
+
+export const metadata = {
+  title: `${metaData.route.title}`,
+  description: `${metaData.route.description}`,
+  keywords: `${metaData.route.keywords}`,
+  metadataBase: new URL(`${metaData.route.canonical}`),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+      'de-DE': '/de-DE',
+    },
+  },
+}
 
 const AllRoute = async () => {
   async function getData() {
@@ -23,9 +38,9 @@ const AllRoute = async () => {
   const data = await getData();
   return (
     <div className={styles.container}>
-        <Link href="/dashboard"> {/* Add your dashboard URL */}
-        <div className={styles.goBackLink}>Go Back To Dashboard</div>
-      </Link>
+      <div className={styles.goBackLink}> <Link href="/dashboard"> {/* Add your dashboard URL */}
+        Go Back To Dashboard
+      </Link></div>
       <h2 className={styles.mainTitle}>Routes</h2>
       <div className={styles.mainContainer}>
         {data.map((item) => (
@@ -33,13 +48,8 @@ const AllRoute = async () => {
             <div className={styles.post}>
               <div className={styles.BlogImage}>
                 <Link href={`/route/${item.customUrl}`}>
-                  <Image
-                    src={""}
-                    alt=""
-                    onResize="responsive"
-                    height={100}
-                    width={100}
-                  />
+                <Image src={item.mediaUrl} alt="" onResize="responsive" height={1000} width={1000} />
+
                 </Link>
               </div>
               <div className={styles.texts}>

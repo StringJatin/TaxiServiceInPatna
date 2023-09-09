@@ -43,8 +43,9 @@ export const GET = async (request, { params }) => {
             Newtitle,
             Newcontent,
            Newauthor,
-            NewcustomUrl} =newdata
-      const post = await PostPage.updateMany({_id : id},{ $set: {metatitle : Newmetatitle , metadescription : Newmetadescription , keywords: Newkeywords , title : Newtitle , content : Newcontent, author : Newauthor, customUrl: NewcustomUrl }});
+            NewcustomUrl,
+            NewmediaUrl} =newdata
+      const post = await PostPage.updateMany({_id : id},{ $set: {metatitle : Newmetatitle , metadescription : Newmetadescription , keywords: Newkeywords , title : Newtitle , content : Newcontent, author : Newauthor, customUrl: NewcustomUrl, mediaUrl : NewmediaUrl }});
   
       return new NextResponse(JSON.stringify(post), { status: 200 });
     } catch (err) {

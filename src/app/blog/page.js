@@ -3,7 +3,23 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
+import metaData from '../../../public/metaData.json'
+export const metadata = {
+  title: `${metaData.blogs.title}`,
+  description: `${metaData.blogs.description}`,
+  keywords: `${metaData.blogs.keywords}`,
+  metadataBase: new URL(`${metaData.blogs.canonical}`),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+      'de-DE': '/de-DE',
+    },
+  },
+}
+
 const Blog = async () => {
+
   async function getData() {
     try {
     const res = await fetch("http://localhost:3000/api/getPosts", {
@@ -29,6 +45,9 @@ const Blog = async () => {
     <link rel="canonical" href="https://example.com/dresses/green-dresses" key="cannonical" />
     </Head>
     <div className={styles.container}>
+    <Link href="/dashboard"> {/* Add your dashboard URL */}
+        <div className={styles.goBackLink}>Go Back To Dashboard</div>
+      </Link>
       <h2 className={styles.mainTitle} >Blogs, News and Releases</h2>
     <div className={styles.mainContainer}>
       

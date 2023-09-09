@@ -3,27 +3,44 @@
     "home": {
       "title": "Home Page",
       "description": "Welcome to our website",
-      "keywords": "next.js, meta tags, SEO"
+      "keywords": "next.js, meta tags, SEO",
+      "canonical": "http://localhost:3000/"
     },
     "about": {
       "title": "About Us",
       "description": "Learn more about our company",
-      "keywords": "about us, company, information"
+      "keywords": "about us, company, information",
+      "canonical": "http://localhost:3000/aboutUs"
     },
     "contact": {
-        "title": "Home Page",
-        "description": "Welcome to our website",
-        "keywords": "next.js, meta tags, SEO"
+        "title": "Contact Page",
+        "description": "Welcome to our ContactPage",
+        "keywords": "next.js, meta tags, SEO",
+        "canonical": "http://localhost:3000/contactUs"
       },
       "blogs": {
-        "title": "About Us",
-        "description": "Learn more about our company",
-        "keywords": "about us, company, information"
+        "title": "Blogs Page",
+        "description": "Learn more about our Blogs",
+        "keywords": "about us, company, information",
+        "canonical": "http://localhost:3000/blog"
       },
       "ourservices": {
-        "title": "About Us",
+        "title": "Our Service Page ",
+        "description": "Learn more about our Service",
+        "keywords": "about us, company, information",
+        "canonical": "http://localhost:3000/ourServices"
+      },
+      "route": {
+        "title": "Route Page",
         "description": "Learn more about our company",
-        "keywords": "about us, company, information"
+        "keywords": "about us, company, information",
+        "canonical": "http://localhost:3000/route"
+      },
+      "city": {
+        "title": "City Page",
+        "description": "Learn more about our company",
+        "keywords": "about us, company, information",
+        "canonical": "http://localhost:3000/city"
       }
   }
   

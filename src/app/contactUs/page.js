@@ -1,6 +1,21 @@
 import React from 'react';
 import styles from './page.module.css';
 import {FaLocationDot} from 'react-icons/fa'
+import metaData from '../../../public/metaData.json'
+export const metadata = {
+  title: `${metaData.contact.title}`,
+  description: `${metaData.contact.description}`,
+  keywords: `${metaData.contact.keywords}`,
+  metadataBase: new URL(`${metaData.contact.canonical}`),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+      'de-DE': '/de-DE',
+    },
+  },
+}
+
 const Contact = () => {
   return (
     <div className={styles.container}>

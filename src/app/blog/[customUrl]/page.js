@@ -22,7 +22,15 @@ export async function generateMetadata({ params }) {
   return {
     title: post.metatitle,
     description: post.metadescription,
-    keywords: post.keywords
+    keywords: post.keywords,
+    metadataBase: new URL(`http://localhost:3000/blog/${post.customUrl}`),
+   alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+      'de-DE': '/de-DE',
+    },
+  },
   };
 }
 const BlogPost = async ({ params }) => {
@@ -47,12 +55,15 @@ const BlogPost = async ({ params }) => {
             {data.desc}
           </p>
           <div className={styles.imageContainer}>
-            <Image
-              src={data.mediaUrl}
-              alt=""
-              fill={true}
-              className={styles.avatar}
-            />
+          <Image
+    src={data.mediaUrl}
+    alt=""
+    width={500} // Set the desired width of the image
+    height={300} // Set the desired height of the image
+    layout="responsive" // Use responsive layout
+    objectFit="contain" // Adjust object-fit property as needed
+    className={styles.avatar}
+  />
            
           </div>
         </div>

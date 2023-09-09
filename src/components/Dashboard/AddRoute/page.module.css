@@ -31,6 +31,7 @@
 
 .createForm .createTextarea{
     margin-top: 1rem;
+
 }
 .createPostBtn{
     margin-top: 5px;
@@ -42,3 +43,7 @@
     cursor: pointer;
 
 }
+.react-quill {
+    /* You might need to use more specific selectors if needed */
+    text-transform: none !important;
+  }

@@ -55,6 +55,7 @@ export const PUT = async (request, { params }) => {
       Newfaq4Ans,
       Newfaq5Ques,
       Newfaq5Ans,
+      NewmediaUrl
     } = newdata;
 
     const post = await RoutePage.updateMany({_id : id},{ $set:{
@@ -66,6 +67,7 @@ export const PUT = async (request, { params }) => {
       FromRoute: NewFromRoute,
       toRoute: NewtoRoute,
       customUrl: NewcustomUrl,
+      mediaUrl: NewmediaUrl,
       faq1Ques: Newfaq1Ques,
       faq1Ans: Newfaq1Ans,
       faq2Ques: Newfaq2Ques,

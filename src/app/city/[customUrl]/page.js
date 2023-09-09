@@ -23,7 +23,15 @@ export async function generateMetadata({ params }) {
   return {
     title: post.metatitle,
     description: post.metadescription,
-    keywords: post.keywords
+    keywords: post.keywords,
+    metadataBase: new URL(`http://localhost:3000/city/${post.customUrl}`),
+   alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+      'de-DE': '/de-DE',
+    },
+  },
   };
 }
 
@@ -46,9 +54,18 @@ const CityPost = async ({ params }) => {
      </div>
         <div className={styles.postPage}>
           <h1>{postInfo.title}</h1>
-          <div>{postInfo.metadescription}</div>
-          <div className={styles.imagePost}>
-            <img src={`https://backend-taxi.onrender.com/${postInfo.cover}`} />
+          {/* <div>{postInfo.metadescription}</div> */}
+          <div className={styles.imageContainer}>
+          <Image
+    src={data.mediaUrl}
+    alt=""
+    width={500} // Set the desired width of the image
+    height={300} // Set the desired height of the image
+    layout="responsive" // Use responsive layout
+    objectFit="contain" // Adjust object-fit property as needed
+    className={styles.avatar}
+  />
+           
           </div>
           <div dangerouslySetInnerHTML={{ __html: postInfo.content }} />
   

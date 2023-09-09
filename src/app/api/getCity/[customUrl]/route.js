@@ -54,6 +54,7 @@ export const PUT = async (request, { params }) => {
       Newfaq4Ans,
       Newfaq5Ques,
       Newfaq5Ans,
+      NewmediaUrl
     } = newdata;
     const post = await CityData.updateMany({_id : id},{ $set: {
       metatitle: Newmetatitle,
@@ -63,6 +64,7 @@ export const PUT = async (request, { params }) => {
       content: Newcontent,
       footTitle: NewfootTitle,
       customUrl: NewcustomUrl,
+      mediaUrl:NewmediaUrl,
       faq1Ques: Newfaq1Ques,
       faq1Ans: Newfaq1Ans,
       faq2Ques: Newfaq2Ques,

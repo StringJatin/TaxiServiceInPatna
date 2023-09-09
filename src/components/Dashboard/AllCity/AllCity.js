@@ -27,13 +27,8 @@ const AllCity = () => {
             <div className={styles.post}>
               <div className={styles.BlogImage}>
                 <Link href={`/city/${item.customUrl}`}>
-                  <Image
-                    src={""}
-                    alt=""
-                    onResize="responsive"
-                    height={100}
-                    width={100}
-                  />
+                <Image src={item.mediaUrl} alt="" onResize="responsive" height={1000} width={1000} />
+
                 </Link>
               </div>
               <div className={styles.texts}>

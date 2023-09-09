@@ -2,6 +2,20 @@ import React from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import metaData from '../../../public/metaData.json'
+export const metadata = {
+  title: `${metaData.city.title}`,
+  description: `${metaData.city.description}`,
+  keywords: `${metaData.city.keywords}`,
+  metadataBase: new URL(`${metaData.city.canonical}`),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+      'de-DE': '/de-DE',
+    },
+  },
+}
 
 const AllCity = async () => {
   async function getData() {
@@ -33,13 +47,8 @@ const AllCity = async () => {
             <div className={styles.post}>
               <div className={styles.BlogImage}>
                 <Link href={`/city/${item.customUrl}`}>
-                  <Image
-                    src={""}
-                    alt=""
-                    onResize="responsive"
-                    height={100}
-                    width={100}
-                  />
+                <Image src={item.mediaUrl} alt="" onResize="responsive" height={1000} width={1000} />
+
                 </Link>
               </div>
               <div className={styles.texts}>

@@ -4,12 +4,32 @@
 .container {
     margin: 0 auto;
     padding: 2rem;
-    width: 100%;
+    width: 85%;
+    
   }
-  
+  .buttonContainer{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    justify-content:space-between;
+  }
+  .title{
+    text-align: center;
+  }
+  .button {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  .editButton {
+    background-color: #3498db;
+    color: #fff;
+  }
   .postPage {
     padding: 1rem;
-    max-width: 800px;
+    max-width: 90%;
     margin: auto;
   }
   
@@ -32,7 +52,7 @@
 
 /* Styling for the FAQ section */
 .faqTitle{
-  text-align: center;
+    text-align: center;
 }
 .faqs .faq {
     margin-bottom: 16px;
@@ -76,7 +96,7 @@
   }
   .goBackLink {
     text-decoration:none;
-    color: blue; /* Link text color */
+    color: black; /* Link text color */
     font-weight:200;
     transition: color 0.2s; /* Smooth color transition on hover */
     padding: 12px;
@@ -86,22 +106,20 @@
   .goBackLink:hover {
     color: #2980b9; /* Link text color on hover */
   }
-  .buttonContainer{
-    width: 85%;
+  .avatar{
+   
+    max-width: 100%; /* Set the maximum width to 100% to make it responsive */
+  height: auto; /* Allow the height to adjust proportionally */
+  object-fit: contain;
+  width: 100%; /* Ensure the image takes up the full width of its container */
+  display: block; /* Remove any extra spacing around the image */
+  margin: 0 auto; 
+  }
+  .imageContainer {
     margin: auto;
-    display: flex;
-    justify-content:space-between;
-  }
-  .button {
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-  }
-  .editButton {
-    background-color: #3498db;
-    color: #fff;
+    max-width: 100%; /* Set the maximum width to 100% to make it responsive */
+    height: auto; /* Allow the height to adjust proportionally */
+    position: relative;
   }
   /* Fade-in animation for the answer */
   @keyframes fadeIn {
@@ -130,5 +148,7 @@
     .imagePost {
       max-height: 300px;
     }
+    .avatar{
+      object-fit: contain;
+    }
   }
-  

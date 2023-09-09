@@ -10,7 +10,7 @@ const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 const modules = {
   toolbar: [
-    [{ 'header': [1, 2, false] }],
+    [{ 'header': [1, 2, 3, false] }],
     ['bold', 'italic', 'underline', 'strike', 'blockquote'],
     [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
     ['link', 'image'],
@@ -36,6 +36,7 @@ const AddRoute = () => {
   const [metadescription, setMetaDescription] = useState('');
   const [FromRoute, setFromRoute] = useState('');
   const [toRoute, settoRoute] = useState('');
+  const [media,setMedia] = useState("")
 
   const [faq1Ques, setFaq1Ques] = useState('');
   const [faq1Ans, setFaq1Ans] = useState('');
@@ -78,6 +79,8 @@ const AddRoute = () => {
     e.preventDefault();
     try {
          e.preventDefault();
+         const mediaUrl =  await imageUpload()
+
       // Send POST request to backend API
       const res = await fetch('/api/createRoute', {
         method: 'POST',
@@ -91,6 +94,7 @@ const AddRoute = () => {
           title,
           FromRoute,
           content,
+          mediaUrl,
           toRoute,
           customUrl,
           faq1: { que: faq1Ques, ans: faq1Ans },
@@ -116,7 +120,18 @@ const AddRoute = () => {
       // Handle errors or display error messages to the user
     }
   };
-
+  const imageUpload = async ()=>{
+    const data =  new FormData()
+    data.append('file',media)
+    data.append('upload_preset',"mystore")
+    data.append('cloud_name',"dsxl2vpgs")
+    const res = await fetch("https://api.cloudinary.com/v1_1/dsxl2vpgs/image/upload",{
+      method:"POST",
+      body:data
+    })
+    const res2  = await res.json()
+    return res2.url
+}
   return (
     <div className={styles.createContainer}>
          <h2>Add Route</h2>
@@ -149,6 +164,13 @@ const AddRoute = () => {
           value={keywords}
           onChange={(e) => setKeywords(e.target.value)}
         />
+         <input type="file" 
+             className={styles.createSummary}
+              accept="image/*"
+              onChange={(e)=>setMedia(e.target.files[0])}
+            />
+        <img className="responsive-img" src={media?URL.createObjectURL(media):""} />
+       
          <input
           type="text"
           placeholder="Enter FromRoute"
@@ -255,7 +277,7 @@ const AddRoute = () => {
                     onChange={(e) => setFaq5Ans(e.target.value)}
                 />
 
-        <button className={styles.createPostBtn}>Create Post</button>
+        <button className={styles.createPostBtn}>Create Route</button>
       </form>
     </div>
   );
