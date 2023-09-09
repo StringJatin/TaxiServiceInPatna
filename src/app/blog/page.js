@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
-
+import Head from "next/head";
 const Blog = async () => {
   async function getData() {
     try {
@@ -24,6 +24,10 @@ const Blog = async () => {
   const data = await getData();
   console.log("dataaaaaa", data)
   return (
+    <>
+    <Head>
+    <link rel="canonical" href="https://example.com/dresses/green-dresses" key="cannonical" />
+    </Head>
     <div className={styles.container}>
       <h2 className={styles.mainTitle} >Blogs, News and Releases</h2>
     <div className={styles.mainContainer}>
@@ -50,7 +54,7 @@ const Blog = async () => {
    </div>
       ))} 
     </div>
-    </div>
+    </div> </>
   );
 };
 

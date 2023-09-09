@@ -46,24 +46,20 @@ const BlogPost = async ({ params }) => {
           <p className={styles.desc}>
             {data.desc}
           </p>
-          <div className={styles.author}>
+          <div className={styles.imageContainer}>
             <Image
               src={data.mediaUrl}
               alt=""
-              width={1200}
-              height={630}
+              fill={true}
               className={styles.avatar}
             />
-            <span className={styles.username}>{data.username}</span>
+           
           </div>
         </div>
-        <a href="" className="author">
-          {" "}
+      
           by {postInfo.author}{" "}
-        </a>
-        <div className={styles.imagePost}>
-          <img src={`https://backend-taxi.onrender.com/${postInfo.cover}`} />
-        </div>
+    
+    
         <div dangerouslySetInnerHTML={{ __html: postInfo.content }} />
       </div>
     </div>
