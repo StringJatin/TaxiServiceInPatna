@@ -106,6 +106,14 @@
   .goBackLink:hover {
     color: #2980b9; /* Link text color on hover */
   }
+  .avatar{
+    object-fit: contain;
+  }
+  .imageContainer {
+    flex: 1;
+    height: 300px;
+    position: relative;
+  }
   /* Fade-in animation for the answer */
   @keyframes fadeIn {
     from {

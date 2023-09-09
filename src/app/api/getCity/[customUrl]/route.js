@@ -42,9 +42,9 @@ export const GET = async (request, { params }) => {
             Newkeywords,
             Newtitle,
             Newcontent,
-           Newauthor,
+            Newauthor,
             NewcustomUrl} =newdata
-      const post = await CityData.updateMany({metatitle : Newmetatitle , metadescription : Newmetadescription , keywords: Newkeywords , title : Newtitle , content : Newcontent, author : Newauthor, customUrl: NewcustomUrl });
+            const post = await CityData.updateMany({_id : id},{ $set: {metatitle : Newmetatitle , metadescription : Newmetadescription , keywords: Newkeywords , title : Newtitle , content : Newcontent, author : Newauthor, customUrl: NewcustomUrl} });
   
       return new NextResponse(JSON.stringify(post), { status: 200 });
     } catch (err) {
