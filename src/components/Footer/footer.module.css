@@ -57,6 +57,13 @@
     display: block;
     transition: all 0.3s ease;
   }
+  .footerCol ul li{
+    list-style: none;
+    
+  }
+  .footerCol ul{
+    padding: 0px;
+  }
   
   .footerCol ul li a:hover {
     color: #ffffff;
@@ -115,7 +122,7 @@
   .footerColFoot {
     width: 100%;
   }
-  
+
   .menuContents {
     color: #888383;
   }
@@ -156,6 +163,9 @@
     margin-right: 1rem;
   }
   
+  .menuItem ul{
+    margin: 0px;
+  }
   .menuItem.active {
     background-color: #888383;
     color: black;

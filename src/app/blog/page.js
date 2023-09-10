@@ -45,9 +45,7 @@ const Blog = async () => {
     <link rel="canonical" href="https://example.com/dresses/green-dresses" key="cannonical" />
     </Head>
     <div className={styles.container}>
-    <Link href="/dashboard"> {/* Add your dashboard URL */}
-        <div className={styles.goBackLink}>Go Back To Dashboard</div>
-      </Link>
+    
       <h2 className={styles.mainTitle} >Blogs, News and Releases</h2>
     <div className={styles.mainContainer}>
       

@@ -52,7 +52,7 @@ const RoundTrip = ({ data }) => {
         <tbody>
           {filteredData.map(item => (
             <tr key={item._id}>
-             <td>{serialNumber++}</td>
+             <td>{++serialNumber}</td>
               <td>{item.fromLocation}</td>
               <td>{item.toLocation}</td>
               <td>{item.date}</td>

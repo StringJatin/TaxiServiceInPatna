@@ -54,7 +54,7 @@ const Footer = () => {
     return (
       <div className={styles.menuContents}>
         <ul>
-          <br />
+       
           {activeRoutes.map((route) => (
             <li key={route}>{renderMain(activeMenu, route)}</li>
           ))}
