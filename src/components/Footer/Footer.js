@@ -13,7 +13,7 @@ const Footer = () => {
   const [routedata, setroutedata] = useState([]);
 
   useEffect(() => {
-    fetch(`/api/getCity`)
+    fetch(`http://localhost:3000/api/getCity`)
       .then((response) => response.json())
       .then((data) => {
         setcitydata(data);
@@ -25,7 +25,7 @@ const Footer = () => {
 
   useEffect(() => {
     
-    fetch(`/api/getRoute`)
+    fetch(`http://localhost:3000/api/getRoute`)
       .then((response) => response.json())
       .then((data) => {
         setroutedata(data);

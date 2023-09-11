@@ -82,7 +82,7 @@ const AddRoute = () => {
          const mediaUrl =  await imageUpload()
 
       // Send POST request to backend API
-      const res = await fetch(`/api/createRoute`, {
+      const res = await fetch(`http://localhost:3000/api/createRoute`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -10,7 +10,7 @@ const DeleteBlog = ({ postId }) => {
     const handleDeleteClick = async () => {
         try {
           // Make a DELETE request to the server to delete the field
-          const response = await fetch(`/api/getPosts/${postId}`, {
+          const response = await fetch(`http://localhost:3000/api/getPosts/${postId}`, {
             method: 'DELETE',
           });
       

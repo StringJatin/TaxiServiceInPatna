@@ -8,7 +8,7 @@ const AllRoute = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch(`/api/getRoute`)
+        fetch(`http://localhost:3000/api/getRoute`)
           .then((response) => response.json())
           .then((data) => {
            
