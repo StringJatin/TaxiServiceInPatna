@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import metaData from '../../../public/metaData.json'
+import GoToDashboard from "@/components/GoToDashboard/GoToDashboard";
 
 export const metadata = {
   title: `${metaData.route.title}`,
@@ -37,10 +38,9 @@ const AllRoute = async () => {
   }
   const data = await getData();
   return (
+    <><GoToDashboard/>
     <div className={styles.container}>
-      <div className={styles.goBackLink}> <Link href="/dashboard"> {/* Add your dashboard URL */}
-        Go Back To Dashboard
-      </Link></div>
+     
       <h2 className={styles.mainTitle}>Routes</h2>
       <div className={styles.mainContainer}>
         {data.map((item) => (
@@ -70,7 +70,7 @@ const AllRoute = async () => {
           </div>
         ))}
       </div>
-    </div>
+    </div></>
   );
 };
 

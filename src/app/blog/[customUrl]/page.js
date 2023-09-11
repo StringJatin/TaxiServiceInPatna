@@ -58,8 +58,8 @@ const BlogPost = async ({ params }) => {
            
           </div>
         </div>
-      
-          by {postInfo.author}{" "}
+      <br></br>
+         by <strong> {postInfo.author}{" "}</strong>
     
     
         <div dangerouslySetInnerHTML={{ __html: postInfo.content }} />

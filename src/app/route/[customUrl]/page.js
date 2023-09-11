@@ -24,63 +24,62 @@ export async function generateMetadata({ params }) {
     description: post.metadescription,
     keywords: post.keywords,
     metadataBase: new URL(`http://localhost:3000/route/${post.customUrl}`),
-   alternates: {
-    canonical: '/',
-    languages: {
-      'en-US': '/en-US',
-      'de-DE': '/de-DE',
+    alternates: {
+      canonical: '/',
+      languages: {
+        'en-US': '/en-US',
+        'de-DE': '/de-DE',
+      },
     },
-  },
   };
 }
 
-  
-const CityPost = async ({ params }) => {
-    const data = await getData(params.customUrl);
-    const postInfo = data;
-    console.log(postInfo);
-    
-    return (
-      <> <EditButton data={data} url={"route/editroute"} />
 
-        <div className={styles.container}>
-            
+const CityPost = async ({ params }) => {
+  const data = await getData(params.customUrl);
+  const postInfo = data;
+  console.log(postInfo);
+
+  return (
+    <> <EditButton data={data} url={"route/editroute"} />
+
+      <div className={styles.container}>
+
         <div className={styles.postPage}>
           <h1>{postInfo.title}</h1>
           {/* <div>{postInfo.metadescription}</div> */}
           <div className={styles.imageContainer}>
-          <Image
-    src={data.mediaUrl}
-    alt=""
-    width={500} // Set the desired width of the image
-    height={300} // Set the desired height of the image
-    layout="responsive" // Use responsive layout
-    objectFit="contain" // Adjust object-fit property as needed
-    className={styles.avatar}
-  />
-           
+            <Image
+              src={data.mediaUrl}
+              alt=""
+              width={500} // Set the desired width of the image
+              height={300} // Set the desired height of the image
+              layout="responsive" // Use responsive layout
+              objectFit="contain" // Adjust object-fit property as needed
+              className={styles.avatar}
+            />
+
           </div>
           <div dangerouslySetInnerHTML={{ __html: postInfo.content }} />
-  
+
           {/* Render FAQs using FAQAccordion */}
-      { (postInfo.faq1.que !=='') &&   <h2 className={styles.faqTitle} >Frequently Asked Questions</h2>}
+          {(postInfo.faq1.que !== '') && <h2 className={styles.faqTitle} >Frequently Asked Questions</h2>}
           <div className={styles.faqs}>
-          {Object.keys(postInfo)
-            .filter((key) => key.startsWith("faq"))
-            .map((key) => (
-              <div key={key} className={styles.faq}>
-                <input type="checkbox" id={key} className={styles.faqToggle} />
-              {postInfo[key].que &&  (<><label htmlFor={key} className={styles.faqButton}>
-                  {postInfo[key].que}
-                </label>
-                <div className={styles.faqAnswer}>{postInfo[key].ans}</div> </>)}
-              </div>
-            ))}
-        </div>
+            {Object.keys(postInfo)
+              .filter((key) => key.startsWith("faq"))
+              .map((key) => (
+                <div key={key} className={styles.faq}>
+                  <input type="checkbox" id={key} className={styles.faqToggle} />
+                  {postInfo[key].que && (<><label htmlFor={key} className={styles.faqButton}>
+                    {postInfo[key].que}
+                  </label>
+                    <div className={styles.faqAnswer}>{postInfo[key].ans}</div> </>)}
+                </div>
+              ))}
+          </div>
         </div>
       </div> </>
-    );
-  };
-  
-  export default CityPost;
-  
+  );
+};
+
+export default CityPost;

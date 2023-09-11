@@ -1,4 +1,5 @@
-
+const lastWeek = new Date();
+  lastWeek.setDate(lastWeek.getDate() - 7);
 export default async function sitemap() {
     const mainUrl = "http://localhost:3000";
   const baseUrl = "http://localhost:3000/api/getPosts";
@@ -23,9 +24,14 @@ export default async function sitemap() {
   }
   const data = await getData();
  
-  const postUrls = data.map((post) => ({
-    url: `http://localhost:3000/blog/${post.customUrl}`,
-    lastModified: post.updatedAt,
+  // const postUrls = data.map((post) => ({
+  //   url: `http://localhost:3000/blog/${post.customUrl}`,
+  //   lastModified: post.updatedAt,
+  // }));
+  const postUrls = (await getData(baseUrl)).map((post) => ({
+    url: `${mainUrl}/blog/${post.customUrl}`,
+    lastModified: lastWeek.toISOString(), // Set to one week ago
+    priority: 0.80,
   }));
   // to get city data
   async function getCityData() {
@@ -48,7 +54,8 @@ export default async function sitemap() {
  
   const cityUrls = cityData.map((post) => ({
     url: `http://localhost:3000/city/${post.customUrl}`,
-    lastModified: post.updatedAt,
+    lastModified: lastWeek.toISOString(), // Set to one week ago
+    priority: 0.80,
   }));
 
 
@@ -73,29 +80,30 @@ export default async function sitemap() {
       console.error("Error fetching form data:", error);
     }
   }
-  const routeData = await getCityData();
+  const routeData = await getRouteData();
  
   const routeUrls = routeData.map((post) => ({
     url: `http://localhost:3000/route/${post.customUrl}`,
-    lastModified: post.updatedAt,
+    lastModified: lastWeek.toISOString(), // Set to one week ago
+    priority: 0.80,
   }));
 
 
 
 
   return [
-    { url : `${mainUrl}/aboutUs`, lastModified: new Date()},
-    { url : `${mainUrl}/blog`, lastModified: new Date()},
-    { url : `${mainUrl}/city`, lastModified: new Date()},
-    { url : `${mainUrl}/route`, lastModified: new Date()},
-    { url : `${mainUrl}/contactUs`, lastModified: new Date()},
-    { url : `${mainUrl}/ourServices`, lastModified: new Date()},
-    { url : `${mainUrl}/login`, lastModified: new Date()},
-    { url : `${mainUrl}/dashboard`, lastModified: new Date()},
-    { url: baseUrl, lastModified: new Date() },
-    { url: baseUrlCity, lastModified: new Date() },
-    { url: baseUrlRoute, lastModified: new Date() },
-    { url: `${baseUrl}/about`, lastModified: new Date() },
+    { url : `${mainUrl}/aboutUs`, lastModified: new Date(),priority: 0.80},
+    { url : `${mainUrl}/blog`, lastModified: new Date(),priority: 0.80},
+    { url : `${mainUrl}/city`, lastModified: new Date(),priority: 0.80},
+    { url : `${mainUrl}/route`, lastModified: new Date(),priority: 0.80},
+    { url : `${mainUrl}/contactUs`, lastModified: new Date(),priority: 0.80},
+    { url : `${mainUrl}/ourServices`, lastModified: new Date(),priority: 0.80},
+    { url : `${mainUrl}/login`, lastModified: new Date(),priority: 0.80},
+    { url : `${mainUrl}/dashboard`, lastModified: new Date(),priority: 0.80},
+    { url: baseUrl, lastModified: new Date(),priority: 0.80 },
+    { url: baseUrlCity, lastModified: new Date() ,priority: 0.80},
+    { url: baseUrlRoute, lastModified: new Date(),priority: 0.80 },
+    { url: `${baseUrl}/about`, lastModified: new Date(),priority: 0.80 },
 
     ...postUrls,...cityUrls,...routeUrls
   ]

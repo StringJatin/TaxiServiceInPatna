@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import metaData from '../../../public/metaData.json'
+import GoToDashboard from "@/components/GoToDashboard/GoToDashboard";
 export const metadata = {
   title: `${metaData.city.title}`,
   description: `${metaData.city.description}`,
@@ -37,9 +38,7 @@ const AllCity = async () => {
   const data = await getData();
   return (
     <div className={styles.container}>
-      <Link href="/dashboard"> {/* Add your dashboard URL */}
-        <div className={styles.goBackLink}>Go Back To Dashboard</div>
-      </Link>
+      <GoToDashboard/>
       <h2 className={styles.mainTitle}>Cities</h2>
       <div className={styles.mainContainer}>
         {data.map((item) => (
@@ -61,7 +60,7 @@ const AllCity = async () => {
                 <p className={styles.Summary}>
                   {" "}
                   {item.metadescription.length > 100
-                    ? `${item.metadescription.substring(0, 200)}...`
+                    ? `${item.metadescription.substring(0, 250)}...`
                     : item.metadescription}{" "}
                 </p>
               </div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 import metaData from '../../../public/metaData.json'
+import GoToDashboard from "@/components/GoToDashboard/GoToDashboard";
 export const metadata = {
   title: `${metaData.blogs.title}`,
   description: `${metaData.blogs.description}`,
@@ -45,7 +46,7 @@ const Blog = async () => {
     <link rel="canonical" href="https://example.com/dresses/green-dresses" key="cannonical" />
     </Head>
     <div className={styles.container}>
-    
+    <GoToDashboard/>
       <h2 className={styles.mainTitle} >Blogs, News and Releases</h2>
     <div className={styles.mainContainer}>
       
