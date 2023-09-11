@@ -2,7 +2,7 @@ import EditBlog from '@/components/Dashboard/EditBlog/editBlog'
 import React from 'react'
 const getPostID = async(customUrl) => {
     try{
-        const res = await fetch(`http://localhost:3000/api/getPosts/${customUrl}`, {
+        const res = await fetch(`${process.env.DOMAIN}/api/getPosts/${customUrl}`, {
             cache: "no-store",
         })
 
@@ -19,9 +19,9 @@ const EditBlogPage = async ({ params }) => {
     const { customUrl } = params;
     const post = await getPostID(customUrl);
     console.log(post)
-    const {_id, metatitle , metadescription , keywords, title , content , author } = post;
+    const {_id, metatitle , metadescription , keywords, title , content , author , mediaUrl } = post;
   return (
-   <EditBlog id={_id}  metatitle = {metatitle} metadescription = {metadescription} keywords = {keywords} title = {title} content = {content} author = {author} customUrl ={customUrl} />
+   <EditBlog id={_id}  metatitle = {metatitle} metadescription = {metadescription} keywords = {keywords} title = {title} content = {content} author = {author} customUrl ={customUrl} media={mediaUrl} />
   )
 }
 

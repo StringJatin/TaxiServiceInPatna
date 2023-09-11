@@ -5,12 +5,21 @@ import metaData from '../../../public/metaData.json'
 export const metadata = {
   title: `${metaData.about.title}`,
   description: `${metaData.about.description}`,
-  keywords: `${metaData.about.keywords}`
+  keywords: `${metaData.about.keywords}`,
+  metadataBase: new URL(`${metaData.about.canonical}`),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+      'de-DE': '/de-DE',
+    },
+  },
 }
 
 const AboutUsPage = () => {
   return (
     <>
+   
       <div className={styles.container}>
         <div className={`${styles.responsiveContainerBlock} ${styles.bigContainer}`}>
           <div className={`${styles.responsiveContainerBlock} ${styles.Container} ${styles.bottomContainer}`}>
@@ -24,11 +33,12 @@ const AboutUsPage = () => {
               <p className={`${styles.textBlk} ${styles.description}`}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fermentum pulvinar ullamcorper suspendisse ac eget. Pellentesque tempus leo in ullamcorper quis vestibulum ligula elementum ut. Congue in dignissim tincidunt ut dolor eu. Mi, eget posuere vitae sed purus nisl lorem.
               </p>
-              <a>
+             
                 <button className={styles.explore}>
                   View More
                 </button>
-              </a>
+             
+             
             </div>
             <div className={styles.videoContainer}>
               <iframe

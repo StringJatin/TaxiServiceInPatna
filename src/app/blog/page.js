@@ -3,10 +3,27 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
+import metaData from '../../../public/metaData.json'
+import GoToDashboard from "@/components/GoToDashboard/GoToDashboard";
+export const metadata = {
+  title: `${metaData.blogs.title}`,
+  description: `${metaData.blogs.description}`,
+  keywords: `${metaData.blogs.keywords}`,
+  metadataBase: new URL(`${metaData.blogs.canonical}`),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+      'de-DE': '/de-DE',
+    },
+  },
+}
+
 const Blog = async () => {
+
   async function getData() {
     try {
-    const res = await fetch("http://localhost:3000/api/getPosts", {
+    const res = await fetch(`${process.env.DOMAIN}/api/getPosts`, {
       cache: "no-store",
     });
     if (!res.ok) {
@@ -29,11 +46,12 @@ const Blog = async () => {
     <link rel="canonical" href="https://example.com/dresses/green-dresses" key="cannonical" />
     </Head>
     <div className={styles.container}>
+    <GoToDashboard/>
       <h2 className={styles.mainTitle} >Blogs, News and Releases</h2>
     <div className={styles.mainContainer}>
       
-      {data.map((item) => (
-       <div className={styles.blogContainer}>
+      {data.map((item, index) => (
+       <div  key={index} className={styles.blogContainer}>
        <div className={styles.post}>
            <div className={styles.BlogImage}>
                <Link href={`/blog/${item.customUrl}`}>

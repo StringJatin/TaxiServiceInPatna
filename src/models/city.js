@@ -27,6 +27,10 @@ const citySchema = new mongoose.Schema({
     customUrl :{
       type: String,
     },
+    mediaUrl:{
+      type:String,
+      required:true
+  },
     faq1: {
       que : String,
       ans : String,

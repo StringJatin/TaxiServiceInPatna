@@ -1,6 +1,21 @@
 import React from 'react';
 import styles from './page.module.css';
 import {FaLocationDot} from 'react-icons/fa'
+import metaData from '../../../public/metaData.json'
+export const metadata = {
+  title: `${metaData.contact.title}`,
+  description: `${metaData.contact.description}`,
+  keywords: `${metaData.contact.keywords}`,
+  metadataBase: new URL(`${metaData.contact.canonical}`),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+      'de-DE': '/de-DE',
+    },
+  },
+}
+
 const Contact = () => {
   return (
     <div className={styles.container}>
@@ -27,7 +42,7 @@ const Contact = () => {
         <div className={styles.rightSide}>
           <div className={styles.topicText}>Send us a message</div>
           <p>
-            If you have any work for me or any types of queries related to my tutorial, you can send me a message from here. It's my pleasure to help you.
+            If you have any work for me or any types of queries related to my tutorial, you can send me a message from here. Its my pleasure to help you.
           </p>
           <form action="#">
             <div className={styles.inputBox}>

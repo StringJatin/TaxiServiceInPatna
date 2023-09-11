@@ -2,11 +2,27 @@ import React from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import metaData from '../../../public/metaData.json'
+import GoToDashboard from "@/components/GoToDashboard/GoToDashboard";
+
+export const metadata = {
+  title: `${metaData.route.title}`,
+  description: `${metaData.route.description}`,
+  keywords: `${metaData.route.keywords}`,
+  metadataBase: new URL(`${metaData.route.canonical}`),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+      'de-DE': '/de-DE',
+    },
+  },
+}
 
 const AllRoute = async () => {
   async function getData() {
     try {
-      const res = await fetch("http://localhost:3000/api/getRoute", {
+      const res = await fetch(`${process.env.DOMAIN}/api/getRoute`, {
         cache: "no-store",
       });
       if (!res.ok) {
@@ -20,26 +36,21 @@ const AllRoute = async () => {
       console.error("Error fetching form data:", error);
     }
   }
+  console.log("ayush mishra url", process.env.DOMAIN)
   const data = await getData();
   return (
+    <><GoToDashboard/>
     <div className={styles.container}>
-        <Link href="/dashboard"> {/* Add your dashboard URL */}
-        <div className={styles.goBackLink}>Go Back To Dashboard</div>
-      </Link>
+     
       <h2 className={styles.mainTitle}>Routes</h2>
       <div className={styles.mainContainer}>
-        {data.map((item) => (
-          <div className={styles.blogContainer}>
+        {data.map((item, index) => (
+          <div  key={index} className={styles.blogContainer}>
             <div className={styles.post}>
               <div className={styles.BlogImage}>
                 <Link href={`/route/${item.customUrl}`}>
-                  <Image
-                    src={""}
-                    alt=""
-                    onResize="responsive"
-                    height={100}
-                    width={100}
-                  />
+                <Image src={item.mediaUrl} alt="" onResize="responsive" height={1000} width={1000} />
+
                 </Link>
               </div>
               <div className={styles.texts}>
@@ -60,7 +71,7 @@ const AllRoute = async () => {
           </div>
         ))}
       </div>
-    </div>
+    </div></>
   );
 };
 

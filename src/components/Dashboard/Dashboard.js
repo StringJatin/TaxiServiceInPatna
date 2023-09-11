@@ -48,7 +48,7 @@ const Dashboard = ({ user }) => {
     async function fetchData() {
       try {
         console.log("Fetching data...");
-        const res = await fetch("http://localhost:3000/api/formdata", {
+        const res = await fetch(`http://localhost:3000/api/formdata`, {
           cache: "no-store",
         });
         if (!res.ok) {

@@ -5,7 +5,7 @@ import 'react-quill/dist/quill.snow.css';
 import styles from './page.module.css';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-
+import { useRouter } from 'next/navigation';
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 const modules = {
@@ -26,7 +26,8 @@ const formats = [
   'link', 'image', 'table',
 ];
 
-const EditBlog = ({id , metatitle , metadescription , keywords, title , content , author, customUrl }) => {
+const EditBlog = ({id , metatitle , metadescription , keywords, title , content , author, customUrl , media }) => {
+  const router = useRouter();
   // Your state variables
   const [Newtitle, setNewTitle] = useState(title);
   const [Newcontent, setNewContent] = useState(content);
@@ -35,13 +36,14 @@ const EditBlog = ({id , metatitle , metadescription , keywords, title , content 
   const [Newmetatitle, setNewMetaTitle] = useState(metatitle);
   const [Newkeywords, setNewKeywords] = useState(keywords);
   const [Newmetadescription, setNewMetaDescription] = useState(metadescription);
-
+  const [Newmedia,setNewMedia] = useState(media)
   const createNewPost = async (e) => {
     e.preventDefault();
     try {
          e.preventDefault();
       // Send POST request to backend API
-      const res = await fetch(`/api/getPosts/${id}`, {
+      const NewmediaUrl =  await imageUpload()
+      const res = await fetch(`http://localhost:3000/api/getPosts/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -54,28 +56,40 @@ const EditBlog = ({id , metatitle , metadescription , keywords, title , content 
             Newcontent,
            Newauthor,
             NewcustomUrl,
+            Newmedia,
+            NewmediaUrl,
         }),
       });
-console.log(Newmetatitle,
-    Newmetadescription,
-    Newkeywords,
-    Newtitle,
-    Newcontent,
-   Newauthor,
-    NewcustomUrl,)
+
       if (!res.ok) {
         throw new Error('Error occurred');
       }
 
       const blog = await res.json();
       console.log('Post Created successfully:', blog);
-      
+      alert('Post Updated successfully:');
+      router.push('/blog');
       // Add any additional logic or UI updates after successful form submission
     } catch (error) {
       console.error('Error saving form data:', error);
       // Handle errors or display error messages to the user
     }
   };
+
+  
+  const imageUpload = async ()=>{
+    const data =  new FormData()
+    data.append('file',Newmedia)
+    data.append('upload_preset',"mystore")
+    data.append('cloud_name',"dsxl2vpgs")
+    const res = await fetch("https://api.cloudinary.com/v1_1/dsxl2vpgs/image/upload",{
+      method:"POST",
+      body:data
+    })
+    const res2  = await res.json()
+    return res2.url
+}
+
 
   return (
     <>
@@ -113,6 +127,13 @@ console.log(Newmetatitle,
           value={Newkeywords}
           onChange={(e) => setNewKeywords(e.target.value)}
         />
+         <input type="file" 
+             className={styles.createSummary}
+              accept="image/*"
+              onChange={(e)=>setNewMedia(e.target.files[0])}
+            />
+       
+      
         <input
           type="text"
           placeholder="Enter the name of Author"

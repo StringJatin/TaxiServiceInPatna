@@ -13,8 +13,10 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function RootLayout({ children }) {
   return (
+    <ScreenProvider>
     <html lang="en">
-      <ScreenProvider>
+   
+     
       <AuthProvider>
       <body className={inter.className}>
         <Navbar />
@@ -22,7 +24,8 @@ export default function RootLayout({ children }) {
         {/* <Footer/> */}
         </body>
         </AuthProvider>
-        </ScreenProvider>
+        
     </html>
+    </ScreenProvider>
   )
 }

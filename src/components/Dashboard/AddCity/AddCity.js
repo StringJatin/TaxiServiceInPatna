@@ -35,6 +35,7 @@ const AddCity = () => {
   const [keywords, setKeywords] = useState('');
   const [metadescription, setMetaDescription] = useState('');
   const [footTitle, setFootTitle] = useState('');
+  const [media,setMedia] = useState("")
 
   const [faq1Ques, setFaq1Ques] = useState('');
   const [faq1Ans, setFaq1Ans] = useState('');
@@ -76,7 +77,8 @@ const AddCity = () => {
     try {
          e.preventDefault();
       // Send POST request to backend API
-      const res = await fetch('/api/createCity', {
+      const mediaUrl =  await imageUpload()
+      const res = await fetch(`http://localhost:3000/api/createCity`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -87,7 +89,8 @@ const AddCity = () => {
           keywords,
           title,
           footTitle,
-          content,    
+          content,
+          mediaUrl,    
           customUrl,
           faq1: { que: faq1Ques, ans: faq1Ans },
           faq2: { que: faq2Ques, ans: faq2Ans },
@@ -111,7 +114,18 @@ const AddCity = () => {
       // Handle errors or display error messages to the user
     }
   };
-
+  const imageUpload = async ()=>{
+    const data =  new FormData()
+    data.append('file',media)
+    data.append('upload_preset',"mystore")
+    data.append('cloud_name',"dsxl2vpgs")
+    const res = await fetch("https://api.cloudinary.com/v1_1/dsxl2vpgs/image/upload",{
+      method:"POST",
+      body:data
+    })
+    const res2  = await res.json()
+    return res2.url
+}
   return (
     <div className={styles.createContainer}>
         <h2>Add City</h2>
@@ -144,6 +158,14 @@ const AddCity = () => {
           value={keywords}
           onChange={(e) => setKeywords(e.target.value)}
         />
+            <input type="file" 
+             className={styles.createSummary}
+              accept="image/*"
+              onChange={(e)=>setMedia(e.target.files[0])}
+            />
+        <img className="responsive-img" src={media?URL.createObjectURL(media):""} />
+       
+      
        <input
           type="text"
           placeholder="Enter FootTitle"
@@ -242,7 +264,7 @@ const AddCity = () => {
                     value={faq5Ans}
                     onChange={(e) => setFaq5Ans(e.target.value)}
                 />
-        <button className={styles.createPostBtn}>Create Post</button>
+        <button className={styles.createPostBtn}>Create City</button>
       </form>
     </div>
   );

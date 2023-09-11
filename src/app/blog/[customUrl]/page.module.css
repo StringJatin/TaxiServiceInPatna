@@ -29,7 +29,7 @@
   }
   .postPage {
     padding: 1rem;
-    max-width: 800px;
+    max-width: 90%;
     margin: auto;
   }
   
@@ -107,11 +107,18 @@
     color: #2980b9; /* Link text color on hover */
   }
   .avatar{
-    object-fit: contain;
+   
+    max-width: 100%; /* Set the maximum width to 100% to make it responsive */
+  height: auto; /* Allow the height to adjust proportionally */
+  object-fit: contain;
+  width: 100%; /* Ensure the image takes up the full width of its container */
+  display: block; /* Remove any extra spacing around the image */
+  margin: 0 auto; 
   }
   .imageContainer {
-    flex: 1;
-    height: 300px;
+    margin: auto;
+    max-width: 100%; /* Set the maximum width to 100% to make it responsive */
+    height: auto; /* Allow the height to adjust proportionally */
     position: relative;
   }
   /* Fade-in animation for the answer */
@@ -141,5 +148,7 @@
     .imagePost {
       max-height: 300px;
     }
+    .avatar{
+      object-fit: contain;
+    }
   }
-  

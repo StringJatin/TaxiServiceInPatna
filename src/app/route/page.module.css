@@ -12,7 +12,7 @@
   .blogContainer {
     width: calc(30.33% - 16px);
     margin-bottom: 16px;
-    margin: auto;
+    /* margin: auto; */
     box-sizing: border-box;
     /* background-color: #24344d; */
     height: 450px;
@@ -77,6 +77,7 @@
     font-size: 0.9rem;
   }
   .goBackLink {
+    width: fit-content;
     text-decoration:none;
     color: blue; /* Link text color */
     font-weight:400;
@@ -85,7 +86,7 @@
     cursor: pointer;
     /* You can add additional styles such as text decoration or font size here */
   }
-  
+
   .goBackLink:hover {
     color: #2980b9; /* Link text color on hover */
   }
@@ -97,8 +98,11 @@
   
     .blogContainer {
       width: 85%; /* Display one post per row on mobile devices */
-      margin-bottom: 1rem;
+      
       height: 500px;
+      
+      margin: auto;
+      margin-bottom: 2rem;
     }
   
     .mainTitle {

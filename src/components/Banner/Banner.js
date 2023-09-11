@@ -11,7 +11,7 @@ const Banner = () => {
     <div className={styles.container}>
       <div className={styles.headingbanner}>What Makes Us Unique?</div>
       <p className={styles.servicepara}>
-      At Patna Taxi Service, we take pride in offering a service that stands out from the rest. Our commitment to excellence and customer satisfaction sets us apart. Here's what makes us unique:
+      At Patna Taxi Service, we take pride in offering a service that stands out from the rest. Our commitment to excellence and customer satisfaction sets us apart. Heres what makes us unique:
       </p>
       <div className={styles.bannerMain}>
         <div className={styles.banner}>

@@ -8,7 +8,7 @@ const AllRoute = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/api/getRoute')
+        fetch(`http://localhost:3000/api/getRoute`)
           .then((response) => response.json())
           .then((data) => {
            
@@ -22,18 +22,13 @@ const AllRoute = () => {
      <div className={styles.container}>
       <h2 className={styles.mainTitle}>Routes</h2>
       <div className={styles.mainContainer}>
-        {posts.map((item) => (
-          <div className={styles.blogContainer}>
+        {posts.map((item, index) => (
+          <div  key={index} className={styles.blogContainer}>
             <div className={styles.post}>
               <div className={styles.BlogImage}>
                 <Link href={`/route/${item.customUrl}`}>
-                  <Image
-                    src={""}
-                    alt=""
-                    onResize="responsive"
-                    height={100}
-                    width={100}
-                  />
+                <Image src={item.mediaUrl} alt="" onResize="responsive" height={1000} width={1000} />
+
                 </Link>
               </div>
               <div className={styles.texts}>

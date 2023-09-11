@@ -2,11 +2,9 @@ import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import DeleteBlog from "@/components/deleteblog/delblog";
-import Link from "next/link";
-
+import EditButton from "@/components/editAndDelete/EditButton";
 async function getData(customUrl) {
-  const res = await fetch(`http://localhost:3000/api/getPosts/${customUrl}`, {
+  const res = await fetch(`${process.env.DOMAIN}/api/getPosts/${customUrl}`, {
     cache: "no-store",
   });
 
@@ -22,24 +20,25 @@ export async function generateMetadata({ params }) {
   return {
     title: post.metatitle,
     description: post.metadescription,
-    keywords: post.keywords
+    keywords: post.keywords,
+    metadataBase: new URL(`${process.env.DOMAIN}/blog/${post.customUrl}`),
+   alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+      'de-DE': '/de-DE',
+    },
+  },
   };
 }
 const BlogPost = async ({ params }) => {
   const data = await getData(params.customUrl);
   const postInfo = data;
   return (
-    
+    <>
+<EditButton data={data} url={"blog/editBlog"} />
     <div className={styles.container}>
-       <Link href="/dashboard"> {/* Add your dashboard URL */}
-        <div className={styles.goBackLink}>Go Back To Dashboard</div>
-      </Link>
-      <div className={styles.buttonContainer}>
-      <Link href={`/blog/editBlog/${data.customUrl}`}> <button className={`${styles.button} ${styles.editButton}`}>
-        Edit Post
-      </button> </Link>
-     <DeleteBlog postId={data._id} />
-     </div>
+
       <div className={styles.top}>
         <div className={styles.info}>
           <h1 className={styles.title}>{data.title}</h1>
@@ -47,22 +46,25 @@ const BlogPost = async ({ params }) => {
             {data.desc}
           </p>
           <div className={styles.imageContainer}>
-            <Image
-              src={data.mediaUrl}
-              alt=""
-              fill={true}
-              className={styles.avatar}
-            />
+          <Image
+    src={data.mediaUrl}
+    alt=""
+    width={500} // Set the desired width of the image
+    height={300} // Set the desired height of the image
+    layout="responsive" // Use responsive layout
+    objectFit="contain" // Adjust object-fit property as needed
+    className={styles.avatar}
+  />
            
           </div>
         </div>
-      
-          by {postInfo.author}{" "}
+      <br></br>
+         by <strong> {postInfo.author}{" "}</strong>
     
     
         <div dangerouslySetInnerHTML={{ __html: postInfo.content }} />
       </div>
-    </div>
+    </div></>
   );
 };
 
