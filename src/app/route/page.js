@@ -22,7 +22,7 @@ export const metadata = {
 const AllRoute = async () => {
   async function getData() {
     try {
-      const res = await fetch("http://localhost:3000/api/getRoute", {
+      const res = await fetch(`${process.env.DOMAIN}/api/getRoute`, {
         cache: "no-store",
       });
       if (!res.ok) {
@@ -36,6 +36,7 @@ const AllRoute = async () => {
       console.error("Error fetching form data:", error);
     }
   }
+  console.log("ayush mishra url", process.env.DOMAIN)
   const data = await getData();
   return (
     <><GoToDashboard/>

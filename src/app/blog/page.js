@@ -23,7 +23,7 @@ const Blog = async () => {
 
   async function getData() {
     try {
-    const res = await fetch("http://localhost:3000/api/getPosts", {
+    const res = await fetch(`${process.env.DOMAIN}/api/getPosts`, {
       cache: "no-store",
     });
     if (!res.ok) {

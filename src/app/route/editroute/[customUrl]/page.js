@@ -2,7 +2,7 @@ import EditBlog from "@/components/Dashboard/EditRoute/EditRoute";
 import React from "react";
 const getPostID = async (customUrl) => {
   try {
-    const res = await fetch(`http://localhost:3000/api/getRoute/${customUrl}`, {
+    const res = await fetch(`${process.env.DOMAIN}/api/getRoute/${customUrl}`, {
       cache: "no-store",
     });
 

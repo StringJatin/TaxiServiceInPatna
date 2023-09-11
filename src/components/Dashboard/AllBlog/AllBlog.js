@@ -8,7 +8,7 @@ const AllBlog = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/api/getPosts')
+        fetch(`/api/getPosts`)
           .then((response) => response.json())
           .then((data) => {
            

@@ -13,7 +13,7 @@ const Footer = () => {
   const [routedata, setroutedata] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/getCity')
+    fetch(`/api/getCity`)
       .then((response) => response.json())
       .then((data) => {
         setcitydata(data);
@@ -24,7 +24,8 @@ const Footer = () => {
   
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/getRoute')
+    
+    fetch(`/api/getRoute`)
       .then((response) => response.json())
       .then((data) => {
         setroutedata(data);
@@ -35,7 +36,7 @@ const Footer = () => {
   
   const renderData = () => {
     const groupedRoutes = {};
-
+    console.log("${process.env.DOMAIN}", process.env.DOMAIN)
     routedata.forEach((route) => {
       const { FromRoute, toRoute } = route;
       if (groupedRoutes[FromRoute]) {

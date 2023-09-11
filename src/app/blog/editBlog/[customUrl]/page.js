@@ -2,7 +2,7 @@ import EditBlog from '@/components/Dashboard/EditBlog/editBlog'
 import React from 'react'
 const getPostID = async(customUrl) => {
     try{
-        const res = await fetch(`http://localhost:3000/api/getPosts/${customUrl}`, {
+        const res = await fetch(`${process.env.DOMAIN}/api/getPosts/${customUrl}`, {
             cache: "no-store",
         })
 

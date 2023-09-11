@@ -6,7 +6,7 @@ import Link from "next/link";
 import DeleteBlog from "@/components/deleteroute/delroute";
 import EditButton from "@/components/editAndDelete/EditButton";
 async function getData(customUrl) {
-  const res = await fetch(`http://localhost:3000/api/getRoute/${customUrl}`, {
+  const res = await fetch(`${process.env.DOMAIN}/api/getRoute/${customUrl}`, {
     cache: "no-store",
   });
 
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
     title: post.metatitle,
     description: post.metadescription,
     keywords: post.keywords,
-    metadataBase: new URL(`http://localhost:3000/route/${post.customUrl}`),
+    metadataBase: new URL(`${process.env.DOMAIN}/route/${post.customUrl}`),
     alternates: {
       canonical: '/',
       languages: {

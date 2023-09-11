@@ -4,7 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import EditButton from "@/components/editAndDelete/EditButton";
 async function getData(customUrl) {
-  const res = await fetch(`http://localhost:3000/api/getPosts/${customUrl}`, {
+  const res = await fetch(`${process.env.DOMAIN}/api/getPosts/${customUrl}`, {
     cache: "no-store",
   });
 
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
     title: post.metatitle,
     description: post.metadescription,
     keywords: post.keywords,
-    metadataBase: new URL(`http://localhost:3000/blog/${post.customUrl}`),
+    metadataBase: new URL(`${process.env.DOMAIN}/blog/${post.customUrl}`),
    alternates: {
     canonical: '/',
     languages: {

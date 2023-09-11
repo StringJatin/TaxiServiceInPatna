@@ -1,13 +1,13 @@
 const lastWeek = new Date();
   lastWeek.setDate(lastWeek.getDate() - 7);
 export default async function sitemap() {
-    const mainUrl = "http://localhost:3000";
-  const baseUrl = "http://localhost:3000/api/getPosts";
-  const baseUrlCity = "http://localhost:3000/api/getCity";
-  const baseUrlRoute ="http://localhost:3000/api/getRoute";
+    const mainUrl = `${process.env.DOMAIN}`;
+  const baseUrl = `${process.env.DOMAIN}/api/getPosts`;
+  const baseUrlCity = `${process.env.DOMAIN}/api/getCity`;
+  const baseUrlRoute =`${process.env.DOMAIN}/api/getRoute`;
   async function getData() {
     try {
-      const res = await fetch("http://localhost:3000/api/getPosts", {
+      const res = await fetch(`${process.env.DOMAIN}/api/getPosts`, {
         cache: "no-store",
       });
       if (!res.ok) {
@@ -36,7 +36,7 @@ export default async function sitemap() {
   // to get city data
   async function getCityData() {
     try {
-      const res = await fetch("http://localhost:3000/api/getCity", {
+      const res = await fetch(`${process.env.DOMAIN}/api/getCity`, {
         cache: "no-store",
       });
       if (!res.ok) {
@@ -53,7 +53,7 @@ export default async function sitemap() {
   const cityData = await getCityData();
  
   const cityUrls = cityData.map((post) => ({
-    url: `http://localhost:3000/city/${post.customUrl}`,
+    url: `${process.env.DOMAIN}/city/${post.customUrl}`,
     lastModified: lastWeek.toISOString(), // Set to one week ago
     priority: 0.80,
   }));
@@ -66,7 +66,7 @@ export default async function sitemap() {
   // to get routess
   async function getRouteData() {
     try {
-      const res = await fetch("http://localhost:3000/api/getRoute", {
+      const res = await fetch(`${process.env.DOMAIN}/api/getRoute`, {
         cache: "no-store",
       });
       if (!res.ok) {
@@ -83,7 +83,7 @@ export default async function sitemap() {
   const routeData = await getRouteData();
  
   const routeUrls = routeData.map((post) => ({
-    url: `http://localhost:3000/route/${post.customUrl}`,
+    url: `${process.env.DOMAIN}/route/${post.customUrl}`,
     lastModified: lastWeek.toISOString(), // Set to one week ago
     priority: 0.80,
   }));

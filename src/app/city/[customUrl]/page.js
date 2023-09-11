@@ -8,7 +8,7 @@ import EditButton from "@/components/editAndDelete/EditButton";
 
 
 async function getData(customUrl) {
-  const res = await fetch(`http://localhost:3000/api/getCity/${customUrl}`, {
+  const res = await fetch(`${process.env.DOMAIN}/api/getCity/${customUrl}`, {
     cache: "no-store",
   });
 
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }) {
     title: post.metatitle,
     description: post.metadescription,
     keywords: post.keywords,
-    metadataBase: new URL(`http://localhost:3000/city/${post.customUrl}`),
+    metadataBase: new URL(`${process.env.DOMAIN}/city/${post.customUrl}`),
     alternates: {
       canonical: '/',
       languages: {

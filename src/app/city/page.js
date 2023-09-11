@@ -21,7 +21,7 @@ export const metadata = {
 const AllCity = async () => {
   async function getData() {
     try {
-      const res = await fetch("http://localhost:3000/api/getCity", {
+      const res = await fetch(`${process.env.DOMAIN}/api/getCity`, {
         cache: "no-store",
       });
       if (!res.ok) {
