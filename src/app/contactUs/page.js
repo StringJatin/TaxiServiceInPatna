@@ -42,7 +42,7 @@ const Contact = () => {
         <div className={styles.rightSide}>
           <div className={styles.topicText}>Send us a message</div>
           <p>
-            If you have any work for me or any types of queries related to my tutorial, you can send me a message from here. It's my pleasure to help you.
+            If you have any work for me or any types of queries related to my tutorial, you can send me a message from here. Its my pleasure to help you.
           </p>
           <form action="#">
             <div className={styles.inputBox}>

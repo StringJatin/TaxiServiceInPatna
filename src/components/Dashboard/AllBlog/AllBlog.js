@@ -23,8 +23,8 @@ const AllBlog = () => {
       <h2 className={styles.mainTitle} >Blogs, News and Releases</h2>
     <div className={styles.mainContainer}>
       
-      {posts.map((item) => (
-       <div className={styles.blogContainer}>
+      {posts.map((item,index) => (
+       <div  key={index} className={styles.blogContainer}>
        <div className={styles.post}>
            <div className={styles.BlogImage}>
                <Link href={`/blog/${item.customUrl}`}>

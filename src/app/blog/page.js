@@ -50,8 +50,8 @@ const Blog = async () => {
       <h2 className={styles.mainTitle} >Blogs, News and Releases</h2>
     <div className={styles.mainContainer}>
       
-      {data.map((item) => (
-       <div className={styles.blogContainer}>
+      {data.map((item, index) => (
+       <div  key={index} className={styles.blogContainer}>
        <div className={styles.post}>
            <div className={styles.BlogImage}>
                <Link href={`/blog/${item.customUrl}`}>
