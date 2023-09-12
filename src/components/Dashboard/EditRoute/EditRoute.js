@@ -7,6 +7,7 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
 
+
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 const modules = {
@@ -97,6 +98,7 @@ console.log(Newtitle);
 
       const blog = await res.json();
       alert('Route Updated successfully:');
+      router.refresh();
       router.push('/route');
       // Add any additional logic or UI updates after successful form submission
     } catch (error) {
