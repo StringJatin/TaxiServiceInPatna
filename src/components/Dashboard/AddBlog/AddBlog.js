@@ -54,7 +54,7 @@ const AddBlog = () => {
          const mediaUrl =  await imageUpload()
          console.log("media" , mediaUrl)
       // Send POST request to backend API
-      const res = await fetch(`/api/createPost`, {
+      const res = await fetch(`https://taxiapi-production.up.railway.app/api/createPost`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
