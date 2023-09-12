@@ -23,7 +23,7 @@ const AllBlog = () => {
       <h2 className={styles.mainTitle} >Blogs, News and Releases</h2>
     <div className={styles.mainContainer}>
       
-      {posts.map((item,index) => (
+      {posts?.map((item,index) => (
        <div  key={index} className={styles.blogContainer}>
        <div className={styles.post}>
            <div className={styles.BlogImage}>

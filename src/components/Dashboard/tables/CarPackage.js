@@ -49,7 +49,7 @@ const CarPackage = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {filteredData.map(item => (
+          {filteredData?.map(item => (
             <tr key={item._id}>
               <td>{serialNumber++}</td>
               <td>{item.date}</td>

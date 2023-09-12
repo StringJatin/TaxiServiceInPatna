@@ -32,7 +32,7 @@ const Footer = () => {
       })
       .catch((error) => console.error(error));
   }, []);
-  const uniqueFromRoutes = Array.from(new Set(routedata.map((route) => route.FromRoute)));
+  const uniqueFromRoutes = Array.from(new Set(routedata?.map((route) => route.FromRoute)));
   
   const renderData = () => {
     const groupedRoutes = {};
@@ -56,7 +56,7 @@ const Footer = () => {
       <div className={styles.menuContents}>
         <ul>
        
-          {activeRoutes.map((route) => (
+          {activeRoutes?.map((route) => (
             <li key={route}>{renderMain(activeMenu, route)}</li>
           ))}
         </ul>
@@ -130,7 +130,7 @@ const Footer = () => {
             <div className={styles.footerColFoot}>
               <h4>Popular Routes From</h4>
               <ul className={styles.menuFoot}>
-                {uniqueFromRoutes.map((fromRoute) => (
+                {uniqueFromRoutes?.map((fromRoute) => (
                  <li
                  key={fromRoute}
                  className={`${styles.menuItem} ${activeMenu === fromRoute.FromRoute ? `${styles.active}` : ''}`}
@@ -146,7 +146,7 @@ const Footer = () => {
               <h4>Popular Cities</h4>
               <div className={styles.menuContents}>
                 <ul>
-                  {citydata.map((i, index) => (
+                  {citydata?.map((i, index) => (
                     <li key={index}><Link href={`/city/${i.customUrl}`}>{i.footTitle}</Link></li>
                   ))}
                 </ul>

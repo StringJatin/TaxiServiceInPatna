@@ -28,8 +28,8 @@ export default async function sitemap() {
   //   url: `http://localhost:3000/blog/${post.customUrl}`,
   //   lastModified: post.updatedAt,
   // }));
-  const postUrls = (await getData(baseUrl)).map((post) => ({
-    url: `${mainUrl}/blog/${post.customUrl}`,
+  const postUrls = data?.map((post) => ({
+    url: `${process.env.DOMAIN}/blog/${post.customUrl}`,
     lastModified: lastWeek.toISOString(), // Set to one week ago
     priority: 0.80,
   }));
@@ -52,7 +52,7 @@ export default async function sitemap() {
   }
   const cityData = await getCityData();
  
-  const cityUrls = cityData.map((post) => ({
+  const cityUrls = cityData?.map((post) => ({
     url: `${process.env.DOMAIN}/city/${post.customUrl}`,
     lastModified: lastWeek.toISOString(), // Set to one week ago
     priority: 0.80,
@@ -82,7 +82,7 @@ export default async function sitemap() {
   }
   const routeData = await getRouteData();
  
-  const routeUrls = routeData.map((post) => ({
+  const routeUrls = routeData?.map((post) => ({
     url: `${process.env.DOMAIN}/route/${post.customUrl}`,
     lastModified: lastWeek.toISOString(), // Set to one week ago
     priority: 0.80,

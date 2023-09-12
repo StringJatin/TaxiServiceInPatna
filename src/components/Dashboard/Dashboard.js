@@ -100,7 +100,7 @@ const Dashboard = ({ user }) => {
     <div className={styles.dashboard}>
       <div className={styles.sidebar}>
         <ul className={styles.optionList}>
-          {options.map((option, index) => (
+          {options?.map((option, index) => (
             // Check if the option label is allowed for the user's role
             allowedOptions.includes(option.label) && (
               <li
