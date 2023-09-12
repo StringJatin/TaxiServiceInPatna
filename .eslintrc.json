@@ -1,7 +1,9 @@
 {
-  "extends": ["next/babel","next/core-web-vitals","next"],
-  "rules":{
-    "react/no-unescaped-entities":1
-  }
-
+  "extends": [
+    "next"
+  ],
+  "eslint.workingDirectories": [
+    { "pattern": "apps/*/" },
+    { "pattern": "packages/*/" }
+  ]
 }
