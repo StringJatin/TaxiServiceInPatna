@@ -51,6 +51,7 @@ const Dashboard = ({ user }) => {
        // const res = await fetch(`/api/formdata`, {
           const res = await fetch(`https://taxiapi-production.up.railway.app/api/formdata`, {
           cache: "no-store",
+  
         });
         if (!res.ok) {
           console.error("Failed to fetch data. Response status:", res.status);

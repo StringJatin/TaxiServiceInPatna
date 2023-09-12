@@ -14,8 +14,14 @@ export async function POST(req, res) {
         return NextResponse.json({
             message:"Message sent successfully!"
         }, {
-            status: 200
-        })
+            status: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+              },
+        }
+        )
 
     }catch (e) {
         return NextResponse.json(
@@ -30,12 +36,16 @@ export const GET = async (Request) => {
         await dbConn();
         const data = await FormData.find();
         console.log("Data fetched successfully:", data);
-        return new NextResponse(JSON.stringify(data), { status: 200 });
+        return new NextResponse(JSON.stringify(data), { status: 200 , headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+          },});
     } catch (err) {
       
 
         console.error("Error fetching data:", err);
-        return new NextResponse("Internal Server Error", { status: 500 });
+        return new NextResponse("Internal Server Error", { status: 404 });
     }
 }
 
