@@ -91,7 +91,7 @@ console.log(Newtitle);
         throw new Error('Error occurred');
       }
 
-      const blog = await res.json();
+     
       alert('City Updated successfully:');
       router.push('/city');
       // Add any additional logic or UI updates after successful form submission
