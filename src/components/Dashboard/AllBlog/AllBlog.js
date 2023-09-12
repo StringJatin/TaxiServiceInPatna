@@ -8,7 +8,7 @@ const AllBlog = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/api/getPosts`)
+        fetch(`/api/getPosts`)
           .then((response) => response.json())
           .then((data) => {
            
@@ -16,13 +16,13 @@ const AllBlog = () => {
           })
           .catch((error) => console.error(error));
       }, []);
-
+      console.log("postdataserver" , posts)
   return (
     <>
      <div className={styles.container}>
       <h2 className={styles.mainTitle} >Blogs, News and Releases</h2>
     <div className={styles.mainContainer}>
-      
+     
       {posts?.map((item,index) => (
        <div  key={index} className={styles.blogContainer}>
        <div className={styles.post}>

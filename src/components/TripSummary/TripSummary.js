@@ -31,7 +31,7 @@ const TripSummary = ({
       const formattedCurrentDate = formatDate(currentDate);
       
       // Send POST request to backend API using fetch
-      const response = await fetch('http://localhost:3000/api/formdata', {
+      const response = await fetch('/api/formdata', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

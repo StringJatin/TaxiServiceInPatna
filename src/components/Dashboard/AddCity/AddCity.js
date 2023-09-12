@@ -78,7 +78,7 @@ const AddCity = () => {
          e.preventDefault();
       // Send POST request to backend API
       const mediaUrl =  await imageUpload()
-      const res = await fetch(`http://localhost:3000/api/createCity`, {
+      const res = await fetch(`/api/createCity`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -51,7 +51,7 @@ const Create = () => {
     //   const currentDate = new Date().toLocaleDateString(); // Format: "28/7/2023"
     //   const formattedCurrentDate = formatDate(currentDate);
       // Send POST request to backend API
-      await Axios.post('http://localhost:3000/api/createPost', {
+      await Axios.post('/api/createPost', {
         metatitle,
           metadescription,
           keywords,

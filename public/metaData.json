@@ -4,43 +4,43 @@
       "title": "Home Page",
       "description": "Welcome to our website",
       "keywords": "next.js, meta tags, SEO",
-      "canonical": "http://localhost:3000/"
+      "canonical": "https://taxiapi-production.up.railway.app/"
     },
     "about": {
       "title": "About Us",
       "description": "Learn more about our company",
       "keywords": "about us, company, information",
-      "canonical": "http://localhost:3000/aboutUs"
+      "canonical": "https://taxiapi-production.up.railway.app/aboutUs"
     },
     "contact": {
         "title": "Contact Page",
         "description": "Welcome to our ContactPage",
         "keywords": "next.js, meta tags, SEO",
-        "canonical": "http://localhost:3000/contactUs"
+        "canonical": "https://taxiapi-production.up.railway.app/contactUs"
       },
       "blogs": {
         "title": "Blogs Page",
         "description": "Learn more about our Blogs",
         "keywords": "about us, company, information",
-        "canonical": "http://localhost:3000/blog"
+        "canonical": "https://taxiapi-production.up.railway.app/blog"
       },
       "ourservices": {
         "title": "Our Service Page ",
         "description": "Learn more about our Service",
         "keywords": "about us, company, information",
-        "canonical": "http://localhost:3000/ourServices"
+        "canonical": "https://taxiapi-production.up.railway.app/ourServices"
       },
       "route": {
         "title": "Route Page",
         "description": "Learn more about our company",
         "keywords": "about us, company, information",
-        "canonical": "http://localhost:3000/route"
+        "canonical": "https://taxiapi-production.up.railway.app/route"
       },
       "city": {
         "title": "City Page",
         "description": "Learn more about our company",
         "keywords": "about us, company, information",
-        "canonical": "http://localhost:3000/city"
+        "canonical": "https://taxiapi-production.up.railway.app/city"
       }
     
   }

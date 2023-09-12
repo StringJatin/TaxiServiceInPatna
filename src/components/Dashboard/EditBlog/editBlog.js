@@ -43,7 +43,7 @@ const EditBlog = ({id , metatitle , metadescription , keywords, title , content 
          e.preventDefault();
       // Send POST request to backend API
       const NewmediaUrl =  await imageUpload()
-      const res = await fetch(`http://localhost:3000/api/getPosts/${id}`, {
+      const res = await fetch(`/api/getPosts/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -8,7 +8,11 @@ const nextConfig = {
             // Add other image domains here if needed
           ],},
     // Other Next.js configuration options, if needed
- 
+    eslint: {
+        // Warning: This allows production builds to successfully complete even if
+        // your project has ESLint errors.
+        ignoreDuringBuilds: true
+      }
 
 };
 

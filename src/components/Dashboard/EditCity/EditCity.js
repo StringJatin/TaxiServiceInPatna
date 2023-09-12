@@ -60,7 +60,7 @@ console.log(Newtitle);
          e.preventDefault();
       // Send POST request to backend API
       const NewmediaUrl =  await imageUpload()
-      const res = await fetch(`http://localhost:3000/api/getCity/${id}`, {
+      const res = await fetch(`/api/getCity/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

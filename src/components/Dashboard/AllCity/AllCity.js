@@ -8,7 +8,7 @@ const AllCity = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/api/getCity`)
+        fetch(`/api/getCity`)
           .then((response) => response.json())
           .then((data) => {
            
