@@ -31,7 +31,7 @@ const TripSummary = ({
       const formattedCurrentDate = formatDate(currentDate);
       
       // Send POST request to backend API using fetch
-      const response = await fetch('https://taxiapi-production.up.railway.app/api/formdata', {
+      const response = await fetch('api/formdata', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
