@@ -49,7 +49,7 @@ const Dashboard = ({ user }) => {
       try {
         console.log("Fetching data...");
        // const res = await fetch(`/api/formdata`, {
-          const res = await fetch(`https://taxiapi-production.up.railway.app/api/formdata`, {
+          const res = await fetch(`/api/formdata`, {
           cache: "no-store",
   
         });
