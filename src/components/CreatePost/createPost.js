@@ -45,6 +45,7 @@ const Create = () => {
   };
 
   const createNewPost = async (e) => {
+    'use server'
     e.preventDefault();
     try {
         e.preventDefault();
