@@ -10,7 +10,8 @@ import Partner from '@/components/PartnerPage/PartnerPage'
 import Footer from '@/components/Footer/Footer'
 import metaData from '../../public/metaData.json'
 
-export const runtime = "edge";
+export const runtime = "edge" 
+
 export const metadata = {
   title: `${metaData.home.title}`,
   description: `${metaData.home.description}`,
