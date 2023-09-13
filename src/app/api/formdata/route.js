@@ -1,7 +1,19 @@
 
 import dbConn from "@/utils/dbConn";
 import FormData from "@/models/form";
-import {NextResponse} from "next/server";
+import { NextResponse } from "next/server";
+
+export const GET = async (req) => {
+    try {
+        await dbConn();
+        const data = await FormData.find();
+        console.log("Data fetched successfully:", data);
+        return new NextResponse(JSON.stringify(data), { status: 200 });
+    } catch (err) {
+        console.error("Error fetching data:", err);
+        return new NextResponse("Internal Server Error", { status: 500 });
+    }
+}
 
 export async function POST(req, res) {
     try {
@@ -12,18 +24,13 @@ export async function POST(req, res) {
         await FormData.create(body);
 
         return NextResponse.json({
-            message:"Message sent successfully!"
+            message: "Message sent successfully!"
         }, {
-            status: 200,
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-              },
+            status: 200
         }
         )
 
-    }catch (e) {
+    } catch (e) {
         return NextResponse.json(
             { message: "Server error, please try again!" },
             { status: 500 }
@@ -31,21 +38,5 @@ export async function POST(req, res) {
     }
 }
 
-export const GET = async (Request) => {
-    try {
-        await dbConn();
-        const data = await FormData.find();
-        console.log("Data fetched successfully:", data);
-        return new NextResponse(JSON.stringify(data), { status: 200 , headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-          },});
-    } catch (err) {
-      
 
-        console.error("Error fetching data:", err);
-        return new NextResponse("Internal Server Error", { status: 404 });
-    }
-}
 
