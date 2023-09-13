@@ -11,6 +11,8 @@ import Footer from '@/components/Footer/Footer'
 import metaData from '../../public/metaData.json'
 import {  NextSeo } from 'next-seo'
 
+export const runtime = "edge" 
+
 export const metadata = {
   title: `${metaData.home.title}`,
   description: `${metaData.home.description}`,
