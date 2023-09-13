@@ -2,7 +2,7 @@ import dbConn from "@/utils/dbConn";
 import FormData from "@/models/form";
 import { NextResponse } from "next/server";
 
-export const POST = async(req, res) => {
+export async function POST(req, res) {
     try {
 
         const body = await req.json();
