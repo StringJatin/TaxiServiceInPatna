@@ -3,14 +3,17 @@ import dbConn from "@/utils/dbConn";
 import FormData from "@/models/form";
 import { NextResponse } from "next/server";
 
-export const GET = async (request) => {
-
+export const GET = async (req) => {
     try {
-        return new Response(JSON.stringify({message: "hola"}), { status: 200 })
+        await dbConn();
+        const data = await FormData.find({});
+        console.log("Data fetched successfully:", data);
+        return new NextResponse(JSON.stringify(data), { status: 200 });
     } catch (err) {
-        return new NextResponse("Database Error", { status: 500 });
+        console.error("Error fetching data:", err);
+        return new NextResponse("Internal Server Error", { status: 500 });
     }
-};
+}
 
 // export const POST = async(req, res) => {
 //     try {
