@@ -1,21 +1,21 @@
 import mongoose from "mongoose"
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+// const express = require('express');
+// const bodyParser = require('body-parser');
+// const cors = require('cors');
 
-const multer = require('multer');
-const uploadMiddleware = multer({dest: 'uploads/'})
-const app = express();
+// const multer = require('multer');
+// const uploadMiddleware = multer({dest: 'uploads/'})
+// const app = express();
 
-const nodemailer = require('nodemailer');
-const fs = require('fs');
+// const nodemailer = require('nodemailer');
+// const fs = require('fs');
 
 // Middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
-app.use(express.json())
-app.use('/uploads', express.static(__dirname + '/uploads'));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(cors());
+// app.use(express.json())
+// app.use('/uploads', express.static(__dirname + '/uploads'));
 const MONGODB_URL = process.env.MONGODB_URL;
 
 if (!MONGODB_URL) {
