@@ -1,51 +1,31 @@
-import mongoose from "mongoose"
-// const express = require('express');
-// const bodyParser = require('body-parser');
-// const cors = require('cors');
+import mongoose from "mongoose";
 
-// const multer = require('multer');
-// const uploadMiddleware = multer({dest: 'uploads/'})
-// const app = express();
-
-// const nodemailer = require('nodemailer');
-// const fs = require('fs');
-
-// Middleware
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(cors());
-// app.use(express.json())
-// app.use('/uploads', express.static(__dirname + '/uploads'));
 const MONGODB_URL = process.env.MONGODB_URL;
 
 if (!MONGODB_URL) {
     throw new Error(
         "Please define the MONGODB_URI environment variable inside .env.local"
-    )
+    );
 }
 
+const cached = {
+    conn: null,
+    promise: null
+};
 
-let cached = global.mongoose;
-
-if (!cached) {
-    cached = global.mongoose = {con: null, promise: null}
-}
-
-const dbConnect = async () => {
+const connectToDatabase = async () => {
     if (cached.conn) {
         return cached.conn;
     }
 
-
-// If a connection does not exist, we check if a promise is already in progress. If a promise is already in progress, we wait for it to resolve to get the connection
     if (!cached.promise) {
         const opts = {
-            bufferCommands : false
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            bufferCommands: false
         };
 
-        cached.promise = await mongoose.connect(MONGODB_URL, opts).then((mongoose) => {
-            return mongoose
-        })
+        cached.promise = mongoose.connect(MONGODB_URL, opts).then((mongoose) => mongoose);
     }
 
     try {
@@ -56,6 +36,6 @@ const dbConnect = async () => {
     }
 
     return cached.conn;
-}
+};
 
-export default dbConnect;
+export default connectToDatabase;
