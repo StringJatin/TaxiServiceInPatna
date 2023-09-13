@@ -11,7 +11,7 @@ export const GET = async (req) => {
     }
 }
 
-export async function POST(req, res) {
+export const POST = async(req, res) => {
     try {
 
         const body = await req.json();
