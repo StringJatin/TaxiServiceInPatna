@@ -47,10 +47,10 @@ const Dashboard = ({ user }) => {
   useEffect(() => {
     async function fetchData() {
       try {
-        console.log("Fetching data...");
+
        const res = await fetch(`/api/formdata`, {
           // const res = await fetch(`https://taxiapi-production.up.railway.app/api/formdata`, {
-          cache: "no-store",
+            next: { revalidate: 10 }
   
         });
         if (!res.ok) {
