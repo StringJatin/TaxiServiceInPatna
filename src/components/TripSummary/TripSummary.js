@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react'; // You can import other necessary hooks here
 import styles from './TripSummary.module.css'; // Adjust the path based on your project structure
 import SuccessBooking from '../SuccessBooking/SuccessBooking';
+import Axios from 'axios';
 
 const TripSummary = ({
   setIsSubmitted,
@@ -31,31 +32,45 @@ const TripSummary = ({
       const formattedCurrentDate = formatDate(currentDate);
       
       // Send POST request to backend API using fetch
-      const response = await fetch('/api/formdata/new', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await Axios.post('/api/formdata/new', {
+        activeMenu,
+        fromLocation,
+        toLocation,
+        date,
+        time,
+        phone,
+        city,
+        tourPackage,
+        returnDate,
+        days,
+        carType,
+        currentdate: formattedCurrentDate
+      })
+      // const response = await fetch('/api/formdata/new', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
          
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      //     'Access-Control-Allow-Origin': '*',
+      //     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+      //     'Access-Control-Allow-Headers': 'Content-Type, Authorization',
          
-        },
-        body: JSON.stringify({
-          activeMenu,
-          fromLocation,
-          toLocation,
-          date,
-          time,
-          phone,
-          city,
-          tourPackage,
-          returnDate,
-          days,
-          carType,
-          currentdate: formattedCurrentDate
-        }),
-      });
+      //   },
+      //   body: JSON.stringify({
+      //     activeMenu,
+      //     fromLocation,
+      //     toLocation,
+      //     date,
+      //     time,
+      //     phone,
+      //     city,
+      //     tourPackage,
+      //     returnDate,
+      //     days,
+      //     carType,
+      //     currentdate: formattedCurrentDate
+      //   }),
+      // });
 
       if (response.ok) {
         console.log('Form data saved successfully:');
