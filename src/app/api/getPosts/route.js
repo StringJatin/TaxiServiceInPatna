@@ -2,7 +2,7 @@ import dbConn from "@/utils/dbConn";
 import PostPage from "@/models/post";
 import { NextResponse } from "next/server";
 
-export const revalidate = 1;
+export const revalidate = 0.2;
 export const fetchCache = 'force-no-store';
 
 export const GET = async (request) => {
