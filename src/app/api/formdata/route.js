@@ -1,13 +1,8 @@
+
+import dbConn from "@/utils/dbConn";
+import FormData from "@/models/form";
 import { NextResponse } from "next/server";
 
-// export const GET = async (request) => {
-
-//     try {
-//         return new Response(JSON.stringify({message: "hola"}), { status: 200 })
-//     } catch (err) {
-//         return new NextResponse("Database Error", { status: 500 });
-//     }
-// };
 export const GET = async (request) => {
 
     try {
