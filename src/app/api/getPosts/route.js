@@ -1,6 +1,9 @@
 import dbConn from "@/utils/dbConn";
 import PostPage from "@/models/post";
 import {NextResponse} from "next/server";
+
+export const revalidate = 10;
+
 export const GET = async (request) => { 
   
     try {
