@@ -6,12 +6,12 @@ import { NextResponse } from "next/server";
 export const GET = async (req) => {
     try {
         await dbConn();
-        const data = await FormData.find();
+        const data = await FormData.find({});
         console.log("Data fetched successfully:", data);
         return new NextResponse(JSON.stringify(data), { status: 200 });
     } catch (err) {
         console.error("Error fetching data:", err);
-        return new NextResponse("Internal Server Error", { status: 500 });
+        return new NextResponse("Internal Server Errror", { status: 500 });
     }
 }
 
