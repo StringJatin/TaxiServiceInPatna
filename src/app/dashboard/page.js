@@ -1,8 +1,6 @@
 "use client"
 import React, {useEffect} from 'react'
 import AdminDashboard from '@/components/Dashboard/Dashboard'
-import { useRouter } from 'next/navigation'
-import { useContext } from 'react'
 import { useAuth } from '../contexts/authContexts'
 const Dashboard = () => {
 

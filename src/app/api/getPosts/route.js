@@ -3,6 +3,7 @@ import PostPage from "@/models/post";
 import {NextResponse} from "next/server";
 
 export const revalidate = 10;
+export const fetchCache = 'force-no-store';
 
 export const GET = async (request) => { 
   
