@@ -35,8 +35,8 @@ const AddBlog = () => {
   const [metatitle, setMetaTitle] = useState('');
   const [keywords, setKeywords] = useState('');
   const [metadescription, setMetaDescription] = useState('');
-  const [media,setMedia] = useState("")
-  const reset = () =>{
+  const [media, setMedia] = useState("")
+  const reset = () => {
     setMetaTitle("");
     setMetaDescription("");
     setKeywords("");
@@ -44,23 +44,22 @@ const AddBlog = () => {
     setAuthor('');
     setContent('');
     setCustomUrl('');
-   setMedia('')
-   }
+    setMedia('')
+  }
 
   const createNewPost = async (e) => {
     e.preventDefault();
     try {
-         e.preventDefault();
-         const mediaUrl =  await imageUpload()
-         console.log("media" , mediaUrl)
+      e.preventDefault();
+      const mediaUrl = await imageUpload()
       // Send POST request to backend API
-      const res = await fetch(`https://taxiapi-production.up.railway.app/api/createPost`, {
+      const res = await fetch(`/api/createPost`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization',
         },
         body: JSON.stringify({
           metatitle,
@@ -68,7 +67,7 @@ const AddBlog = () => {
           keywords,
           title,
           content,
-          
+
           mediaUrl,
           author,
           customUrl,
@@ -89,21 +88,21 @@ const AddBlog = () => {
       // Handle errors or display error messages to the user
     }
   };
-  const imageUpload = async ()=>{
-    const data =  new FormData()
-    data.append('file',media)
-    data.append('upload_preset',"mystore")
-    data.append('cloud_name',"dsxl2vpgs")
-    const res = await fetch("https://api.cloudinary.com/v1_1/dsxl2vpgs/image/upload",{
-      method:"POST",
-      body:data
+  const imageUpload = async () => {
+    const data = new FormData()
+    data.append('file', media)
+    data.append('upload_preset', "mystore")
+    data.append('cloud_name', "dsxl2vpgs")
+    const res = await fetch("https://api.cloudinary.com/v1_1/dsxl2vpgs/image/upload", {
+      method: "POST",
+      body: data
     })
-    const res2  = await res.json()
+    const res2 = await res.json()
     return res2.url
-}
+  }
   return (
     <div className={styles.createContainer}>
-         <h2>Add blog</h2>
+      <h2>Add blog</h2>
       <form className={styles.createForm} onSubmit={createNewPost}>
         <input
           type="text"
@@ -112,14 +111,14 @@ const AddBlog = () => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-         <input
+        <input
           type="text"
           placeholder="Enter Meta Title"
           className={styles.createTitle}
           value={metatitle}
           onChange={(e) => setMetaTitle(e.target.value)}
         />
-         <input
+        <input
           type="text"
           placeholder="Enter Meta Description"
           className={styles.createSummary}
@@ -133,19 +132,19 @@ const AddBlog = () => {
           value={keywords}
           onChange={(e) => setKeywords(e.target.value)}
         />
-       
-          
-          
-            <input type="file" 
-             className={styles.createSummary}
-              accept="image/*"
-              onChange={(e)=>setMedia(e.target.files[0])}
-            />
-        <img className="responsive-img" src={media?URL.createObjectURL(media):""} />
-       
-      
 
-       
+
+
+        <input type="file"
+          className={styles.createSummary}
+          accept="image/*"
+          onChange={(e) => setMedia(e.target.files[0])}
+        />
+        <img className="responsive-img" src={media ? URL.createObjectURL(media) : ""} />
+
+
+
+
         <input
           type="text"
           placeholder="Enter the name of Author"

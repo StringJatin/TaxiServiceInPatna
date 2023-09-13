@@ -9,7 +9,7 @@ export async function POST(req, res) {
         await dbConn();
 
        const res = await PostPage.create(body);
-        console.log("ccccc", res)
+
         return NextResponse.json({
             message:"blog sent successfully!"
         }, {

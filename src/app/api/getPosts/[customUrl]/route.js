@@ -17,7 +17,7 @@ export const GET = async (request, { params }) => {
   };
   
   export const DELETE = async (request, { params }) => {
-    console.log("id by ayush : ",params)
+    
     const { id } = params;
   
     try {
@@ -38,7 +38,7 @@ export const GET = async (request, { params }) => {
 
   export const PUT = async (request, { params }) => {
     const id  = params.customUrl;
-  console.log("id is : " , id)
+  
     try {
       await dbConn();
       const newdata = await request.json();
