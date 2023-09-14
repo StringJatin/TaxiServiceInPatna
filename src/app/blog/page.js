@@ -23,7 +23,7 @@ const Blog = async () => {
 
   async function getData() {
     try {
-    const res = await fetch(`${process.env.DOMAIN}/api/getPosts`, { next: { revalidate: 3600 } });
+    const res = await fetch(`${process.env.DOMAIN}/api/getPosts`, { next: { revalidate: 1 } });
     if (!res.ok) {
       console.log("Failed to fetch data. Response status:", res.status);
       throw new Error("Failed to fetch data");

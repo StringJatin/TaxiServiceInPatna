@@ -50,7 +50,7 @@ const Dashboard = ({ user }) => {
 
        const res = await fetch(`/api/formdata`, {
           // const res = await fetch(`https://taxiapi-production.up.railway.app/api/formdata`, {
-            next: { revalidate: 10 }
+            next: { revalidate: 1 }
   
         });
         if (!res.ok) {
