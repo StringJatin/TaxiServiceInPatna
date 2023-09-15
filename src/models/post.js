@@ -33,8 +33,14 @@ const postSchema = new mongoose.Schema({
   mediaUrl:{
     type:String,
     required:true
+},
+createdAt:{
+  type:String,
+  
 }
-});
+
+},
+);
 
 
 export default mongoose.models.PostPage ||  mongoose.model('PostPage', postSchema);

@@ -12,20 +12,13 @@ import AddCity from './AddCity/AddCity';
 import AllBlog from './AllBlog/AllBlog';
 import AllCity from './AllCity/AllCity';
 import AllRoute from './AllRoute/AllRoute';
-
-const Dashboard = ({ user }) => {
- 
-  const [selectedOption, setSelectedOption] = useState('');
+import { useRouter } from 'next/navigation';
+const Dashboard = ({ userRole, selectedOption, setSelectedOption }) => {
+  const router = useRouter();
   const [fields, setFields] = useState([]);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    if (user.role === 'admin' || user.role === 'lead') {
-      setSelectedOption('Round trip');
-    } else if (user.role === 'editor') {
-      setSelectedOption('All Blogs');
-    }
-  }, [user.role]);
+
   // Define roles and their corresponding allowed options
   const rolePermissions = {
     admin: [
@@ -48,10 +41,10 @@ const Dashboard = ({ user }) => {
     async function fetchData() {
       try {
 
-       const res = await fetch(`/api/formdata`, {
+        const res = await fetch(`/api/formdata`, {
           // const res = await fetch(`https://taxiapi-production.up.railway.app/api/formdata`, {
-            next: { revalidate: 1 }
-  
+          next: { revalidate: 1 }
+
         });
         if (!res.ok) {
           console.error("Failed to fetch data. Response status:", res.status);
@@ -96,8 +89,14 @@ const Dashboard = ({ user }) => {
     setFields(optionToFields[label]);
   };
 
-  const allowedOptions = rolePermissions[user.role] || [];
+  const allowedOptions = rolePermissions[userRole] || [];
+  const handleLogout = () => {
+    // Clear user data from sessionStorage
+    sessionStorage.removeItem('user');
 
+    // Redirect to the login page
+    router.push('/login');
+  };
   return (
     <div className={styles.dashboard}>
       <div className={styles.sidebar}>
@@ -116,6 +115,13 @@ const Dashboard = ({ user }) => {
             )
           ))}
         </ul>
+        <div className={styles.buttons}><hr></hr>
+          <button className={styles.logoutButton} onClick={handleLogout}>
+            Logout
+          </button>
+          <p className={styles.userRole}>Logged in as {userRole}</p>
+        </div>
+
       </div>
       <div className={styles.content}>
         {loading ? (
@@ -130,9 +136,9 @@ const Dashboard = ({ user }) => {
             {selectedOption === 'Add Blog' && <AddBlog />}
             {selectedOption === 'Add Route' && <AddRoute />}
             {selectedOption === 'Add City' && <AddCity />}
-            {selectedOption === 'All Blogs' && <AllBlog />}
-            {selectedOption === 'All Cities' && <AllCity />}
-            {selectedOption === 'All Routes' && <AllRoute />}
+            {selectedOption === 'All Blogs' && <AllBlog selectedOption={selectedOption} setSelectedOption={setSelectedOption} />}
+            {selectedOption === 'All Cities' && <AllCity selectedOption={selectedOption} setSelectedOption={setSelectedOption} />}
+            {selectedOption === 'All Routes' && <AllRoute selectedOption={selectedOption} setSelectedOption={setSelectedOption} />}
           </div>
         )}
       </div>

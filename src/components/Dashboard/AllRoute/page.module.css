@@ -77,6 +77,35 @@
     color: #24344d;
     font-size: 0.9rem;
   }
+  .editButton {
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 8px; /* Add some spacing between buttons */
+  }
+  
+  .editButton:hover {
+    background-color: #0056b3; /* Button background color on hover */
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  /* Style for the Delete button */
+  .deleteButton {
+    background-color: #dc3545; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .deleteButton:hover {
+    background-color: #c82333; /* Button background color on hover */
+    transition: background-color 0.3s ease-in-out;
+  }
   @media (max-width: 768px) {
     .mainContainer {
       width: 85%;

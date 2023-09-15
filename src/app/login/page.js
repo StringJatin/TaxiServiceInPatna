@@ -1,15 +1,13 @@
 "use client";
-import React, { useState } from "react";
-import usersData from "./LoginAccounts.json"; // Import the JSON data
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
 import { useRouter } from "next/navigation";
-import { useAuth } from "../contexts/authContexts";
+import usersData from "./LoginAccounts.json"; // Import the JSON data
 
-const Login = ({}) => {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { login } = useAuth();
   const router = useRouter();
 
   const authenticateUser = async (username, password) => {
@@ -21,14 +19,15 @@ const Login = ({}) => {
     return userData;
   };
 
+
   const handleLogin = async (e) => {
     e.preventDefault();
 
     const user = await authenticateUser(username, password);
 
     if (user) {
-      // Set the user's login status and role using the `login` function
-      login(user);
+      // Store user information in sessionStorage
+      sessionStorage.setItem("user", JSON.stringify(user));
 
       // Redirect to the appropriate dashboard based on the user's role
       router.push(`/dashboard`);

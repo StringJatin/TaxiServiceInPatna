@@ -28,33 +28,33 @@ const formats = [
   'link', 'image', 'table',
 ];
 
-const EditBlog = ({id , metatitle , metadescription , keywords, title , content , FromRoute,toRoute , customUrl, media,faq1, faq2, faq3, faq4, faq5 }) => {
+const EditBlog = ({ data,setPostData, selectedOption, setSelectedOption }) => {
     const router = useRouter();
   // Your state variables
-  const [Newtitle, setNewTitle] = useState(title);
-  const [Newcontent, setNewContent] = useState(content);
-  const [NewcustomUrl, setNewCustomUrl] = useState(customUrl);
-  const [Newmetatitle, setNewMetaTitle] = useState(metatitle);
-  const [Newkeywords, setNewKeywords] = useState(keywords);
-  const [Newmetadescription, setNewMetaDescription] = useState(metadescription);
-  const [NewFromRoute, setNewFromRoute] = useState(FromRoute);
-  const [NewtoRoute, setNewtoRoute] = useState(toRoute);
+  const [Newtitle, setNewTitle] = useState(data.title);
+  const [Newcontent, setNewContent] = useState(data.content);
+  const [NewcustomUrl, setNewCustomUrl] = useState(data.customUrl);
+  const [Newmetatitle, setNewMetaTitle] = useState(data.metatitle);
+  const [Newkeywords, setNewKeywords] = useState(data.keywords);
+  const [Newmetadescription, setNewMetaDescription] = useState(data.metadescription);
+  const [NewFromRoute, setNewFromRoute] = useState(data.FromRoute);
+  const [NewtoRoute, setNewtoRoute] = useState(data.toRoute);
   const [Newmedia,setNewMedia] = useState("")
 
-  const [Newfaq1Ques, setNewFaq1Ques] = useState(faq1.que);
-  const [Newfaq1Ans, setNewFaq1Ans] = useState(faq1.ans);
+  const [Newfaq1Ques, setNewFaq1Ques] = useState(data.faq1.que);
+  const [Newfaq1Ans, setNewFaq1Ans] = useState(data.faq1.ans);
 
-  const [Newfaq2Ques, setNewFaq2Ques] = useState(faq2.que);
-  const [Newfaq2Ans, setNewFaq2Ans] = useState(faq2.ans);
+  const [Newfaq2Ques, setNewFaq2Ques] = useState(data.faq2.que);
+  const [Newfaq2Ans, setNewFaq2Ans] = useState(data.faq2.ans);
 
-  const [Newfaq3Ques, setNewFaq3Ques] = useState(faq3.que);
-  const [Newfaq3Ans, setNewFaq3Ans] = useState(faq3.ans);
+  const [Newfaq3Ques, setNewFaq3Ques] = useState(data.faq3.que);
+  const [Newfaq3Ans, setNewFaq3Ans] = useState(data.faq3.ans);
 
-  const [Newfaq4Ques, setNewFaq4Ques] = useState(faq4.que);
-  const [Newfaq4Ans, setNewFaq4Ans] = useState(faq4.ans);
+  const [Newfaq4Ques, setNewFaq4Ques] = useState(data.faq4.que);
+  const [Newfaq4Ans, setNewFaq4Ans] = useState(data.faq4.ans);
 
-  const [Newfaq5Ques, setNewFaq5Ques] = useState(faq5.que);
-  const [Newfaq5Ans, setNewFaq5Ans] = useState(faq5.ans);
+  const [Newfaq5Ques, setNewFaq5Ques] = useState(data.faq5.que);
+  const [Newfaq5Ans, setNewFaq5Ans] = useState(data.faq5.ans);
   
 console.log(Newtitle);
   const createNewPost = async (e) => {
@@ -64,7 +64,7 @@ console.log(Newtitle);
       // Send POST request to backend API
       const NewmediaUrl =  await imageUpload()
 
-      const res = await fetch(`/api/getRoute/${id}`, {
+      const res = await fetch(`/api/getRoute/${data._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -96,10 +96,10 @@ console.log(Newtitle);
         throw new Error('Error occurred');
       }
 
-      const blog = await res.json();
+      
       alert('Route Updated successfully:');
-      router.refresh();
-      router.push('/route');
+      
+      setPostData(null)
       // Add any additional logic or UI updates after successful form submission
     } catch (error) {
       console.error('Error saving form data:', error);
@@ -122,11 +122,9 @@ console.log(Newtitle);
 
   return (
     <>
-     <Link href={`/route/${customUrl}`}> {/* Add your dashboard URL */}
-        <div className={styles.goBackLink}>Go Back</div>
-      </Link>
+    { data  && (
     <div className={styles.createContainer}>
-         <h2>Edit Post</h2>
+         <h2>Edit Route</h2>
       <form className={styles.createForm} onSubmit={createNewPost}>
       <input
           type="text"
@@ -270,7 +268,7 @@ console.log(Newtitle);
 
         <button className={styles.createPostBtn}>Update Route</button>
       </form>
-    </div>
+    </div>)}
     </>
   );
 };

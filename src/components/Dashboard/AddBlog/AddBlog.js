@@ -1,6 +1,6 @@
 'use client'
 // Import statements
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import 'react-quill/dist/quill.snow.css';
 import styles from './page.module.css';
 
@@ -36,6 +36,8 @@ const AddBlog = () => {
   const [keywords, setKeywords] = useState('');
   const [metadescription, setMetaDescription] = useState('');
   const [media, setMedia] = useState("")
+
+  
   const reset = () => {
     setMetaTitle("");
     setMetaDescription("");
@@ -51,6 +53,10 @@ const AddBlog = () => {
     e.preventDefault();
     try {
       e.preventDefault();
+     
+      const currentDate = new Date().toLocaleDateString(); // Format: "28/7/2023"
+      const formattedCurrentDate = formatDate(currentDate);
+      
       const mediaUrl = await imageUpload()
       // Send POST request to backend API
       const res = await fetch(`/api/createPost`, {
@@ -67,10 +73,11 @@ const AddBlog = () => {
           keywords,
           title,
           content,
-
+         
           mediaUrl,
           author,
           customUrl,
+          createdAt : formattedCurrentDate
         }),
       });
 
@@ -100,6 +107,12 @@ const AddBlog = () => {
     const res2 = await res.json()
     return res2.url
   }
+  const formatDate = (dateString) => {
+    const parts = dateString.split('/');
+    const formattedDate = `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`;
+    return formattedDate;
+  };
+
   return (
     <div className={styles.createContainer}>
       <h2>Add blog</h2>

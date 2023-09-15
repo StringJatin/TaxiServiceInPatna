@@ -57,3 +57,6 @@
     cursor: pointer;
 
 }
+.editdashboard{
+    display: flex;
+}

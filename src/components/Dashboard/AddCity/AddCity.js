@@ -70,6 +70,7 @@ const AddCity = () => {
     setFaq4Ans('');
     setFaq5Ques('');
     setFaq5Ans('');
+    setMedia('');
 
    }
   const createNewPost = async (e) => {
@@ -77,6 +78,9 @@ const AddCity = () => {
     try {
          e.preventDefault();
       // Send POST request to backend API
+      const currentDate = new Date().toLocaleDateString(); // Format: "28/7/2023"
+      const formattedCurrentDate = formatDate(currentDate);
+
       const mediaUrl =  await imageUpload()
       const res = await fetch(`/api/createCity`, {
         method: 'POST',
@@ -92,6 +96,7 @@ const AddCity = () => {
           content,
           mediaUrl,    
           customUrl,
+          createdAt : formattedCurrentDate,
           faq1: { que: faq1Ques, ans: faq1Ans },
           faq2: { que: faq2Ques, ans: faq2Ans },
           faq3: { que: faq3Ques, ans: faq3Ans },
@@ -126,6 +131,11 @@ const AddCity = () => {
     const res2  = await res.json()
     return res2.url
 }
+const formatDate = (dateString) => {
+  const parts = dateString.split('/');
+  const formattedDate = `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`;
+  return formattedDate;
+};
   return (
     <div className={styles.createContainer}>
         <h2>Add City</h2>

@@ -57,6 +57,10 @@ const routeSchema = new mongoose.Schema({
   faq5: {
     que : String,
     ans : String,
+  },
+  createdAt:{
+    type:Date,
+    default: new Date().toLocaleDateString(),
   }
 });
 

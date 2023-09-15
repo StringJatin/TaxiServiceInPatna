@@ -50,6 +50,10 @@ const citySchema = new mongoose.Schema({
   faq5: {
     que: String,
     ans: String,
+  },
+  createdAt:{
+    type:Date,
+    default: new Date().toLocaleDateString(),
   }
 });
 const CityData = mongoose.models.CityData || mongoose.model('CityData', citySchema);
